@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Dynamic Fixed Multiply returns the product of a and b.
+This circuit is the equivalent of the VHDL standard library &quot;fixed_generic_pkg&quot;.
+a, b can have different bit width and radix, where s has the bit width of &quot;2 * max(a_bits, b_bits)&quot; and radix &quot;a_radix + b_radix&quot;.
+
+{{de 
+Der Dynamic Fixed Multiply gibt das Produkt von a und b zurück.
+Dieser Schaltkreis is das Äquivalent von der VHDL Standard Bibliothek &quot;fixed_generic_pkg&quot;
+a, b können eine unterschiedliche Bitbreite und Radix haben, wobei s die Bitbreite von &quot;2 * max(a_bits, b_bits)&quot; und Radix &quot;a_radix + b_radix&quot; hat.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Mul</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a</string>
+        </entry>
+        <entry>
+          <string>fixedPoint</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.a_bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.a_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b</string>
+        </entry>
+        <entry>
+          <string>fixedPoint</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.b_bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.b_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>p</string>
+        </entry>
+        <entry>
+          <string>fixedPoint</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.out_bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = global.out_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Mul</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Signed</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.mul_in_bits;
+this.Signed = args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>a_bits := 16;
+a_radix := 8;
+b_bits := 16;
+b_radix := 8;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := args.a_bits;
+in_radix := args.a_radix;
+out_bits := global.mul_in_bits;
+out_radix := args.a_radix;
+round := false;
+saturate := false;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := args.b_bits;
+in_radix := args.b_radix;
+out_bits := global.mul_in_bits;
+out_radix := args.b_radix;
+round := false;
+saturate := false;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>if (args.signed) {
+    global.fixed_format := 8;
+} else {
+    global.fixed_format := 7;
+}
+
+global.out_bits := args.a_bits + args.b_bits;
+global.out_radix := args.a_radix + args.b_radix;
+
+global.mul_in_bits := max(args.a_bits, args.b_bits);
+global.mul_out_bits := 2 * global.mul_in_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-380"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := global.mul_out_bits;
+in_radix := global.out_radix;
+out_bits := global.out_bits;
+out_radix := global.out_radix;
+round := false;
+saturate := false;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="20"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="0"/>
+      <p2 x="140" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="20"/>
+      <p2 x="220" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="20"/>
+      <p2 x="320" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="40"/>
+      <p2 x="140" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="60"/>
+      <p2 x="40" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="60"/>
+      <p2 x="120" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="40"/>
+      <p2 x="120" y="60"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

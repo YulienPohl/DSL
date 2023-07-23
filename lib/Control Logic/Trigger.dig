@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Trigger stores the input and emits a pulse when the value changes.
+This circuit is modeled after the &quot;sensitivity list&quot; of VHDL and is compatible with the While and For Loop.
+
+{{de 
+Der Trigger speichert die Eingabe und gibt ein Pulse aus wenn die sich der Wert ändert.
+Dieser Schaltkreis ist der &quot;sensitivity list&quot; von VHDL nach nachempfunden und ist mit der While und For Schleife kompatibel.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>Comparator</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Q</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>D</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>C</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 8;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>sensitivity</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Register</elementName>
+      <elementAttributes>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>C</string>
+          </inverterConfig>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="240" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>s</string>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>D C Q s
+0 0 0 0
+1 1 0 1
+1 0 1 0
+0 1 1 1</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>bits := 1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-160"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="160" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="-20"/>
+      <p2 x="320" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="20"/>
+      <p2 x="320" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="160" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="20"/>
+      <p2 x="60" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="20"/>
+      <p2 x="240" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="40"/>
+      <p2 x="140" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="40"/>
+      <p2 x="40" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="60"/>
+      <p2 x="60" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="40" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="-20"/>
+      <p2 x="140" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="140" y="40"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

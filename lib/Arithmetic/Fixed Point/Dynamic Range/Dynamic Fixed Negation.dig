@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Dynamic Fixed Negation returns the negative number.
+The output has 1 bit more than the input.
+
+{{de 
+Der Dynamic Fixed Negation gibt die negative Zahl zurück.
+Die Ausgabe hat 1 Bit mehr als die Eingabe.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Neg</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>in</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.out_bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 16;
+radix := 8;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>global.out_bits := args.bits + 1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := args.bits;
+in_radix := args.radix;
+out_bits := global.out_bits;
+out_radix := args.radix;
+round := false;
+saturate := false;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Neg</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.out_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="0"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="0"/>
+      <p2 x="120" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="0"/>
+      <p2 x="220" y="0"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

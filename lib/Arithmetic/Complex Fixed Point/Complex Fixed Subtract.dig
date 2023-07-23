@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Cplx-Sub</string>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>4</int>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 16;
+radix := 8;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a_re</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a_im</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>y_re</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b_re</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b_im</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>y_im</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Subtract.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Subtract.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="100"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="80" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="180"/>
+      <p2 x="40" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="180" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="100"/>
+      <p2 x="80" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="280"/>
+      <p2 x="60" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="120"/>
+      <p2 x="180" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="40"/>
+      <p2 x="80" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="140"/>
+      <p2 x="80" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="40"/>
+      <p2 x="40" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="140"/>
+      <p2 x="60" y="280"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

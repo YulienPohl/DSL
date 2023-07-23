@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Cplx-Mag</string>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>4</int>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>re_in</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>im_in</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>mag</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixed</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="340" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 16;
+radix := 8;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Dynamic Fixed Square Root.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := global.mul_bits;
+radix := global.mul_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="240" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>global.mul_bits := args.bits * 2;
+global.mul_radix := args.radix * 2;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Dynamic Fixed Multiply.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>a_bits := args.bits;
+a_radix := args.radix;
+b_bits := args.bits;
+b_radix := args.radix;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Dynamic Fixed Multiply.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>a_bits := args.bits;
+a_radix := args.radix;
+b_bits := args.bits;
+b_radix := args.radix;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Add</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.mul_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="140"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="60" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="100"/>
+      <p2 x="160" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="100"/>
+      <p2 x="340" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="100"/>
+      <p2 x="40" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="100"/>
+      <p2 x="240" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="100"/>
+      <p2 x="60" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="20"/>
+      <p2 x="140" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="120"/>
+      <p2 x="160" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="40"/>
+      <p2 x="60" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="140"/>
+      <p2 x="60" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="140"/>
+      <p2 x="160" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="40" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="100"/>
+      <p2 x="40" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="140" y="100"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

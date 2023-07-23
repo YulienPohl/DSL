@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>Integer To Fixed converts the input to a number with radix.
+
+{{de Integer To Fixed wandelt die Eingabe um zu einer Zahl mit Radix.}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>To-Fixed</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>in</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.in_bits;
+this.intFormat = global.int_format;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.out_bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.out_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := 8;
+out_bits := 16;
+out_radix := 8;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := args.in_bits;
+in_radix := 0;
+out_bits := args.out_bits;
+out_radix := args.out_radix;
+round := false;
+saturate := false;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>if (args.signed) {
+    global.int_format := 2;
+    global.fixed_format := 8;
+} else {
+    global.int_format := 1;
+    global.fixed_format := 7;
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-260"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="0"/>
+      <p2 x="140" y="0"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

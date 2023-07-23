@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Fixed Multiply returns the product of a and b.
+a and b have the same bit width and radix, where p has twice the bit width and radix.
+If &quot;saturate = true&quot;, the largest possible number is output at overflow, if &quot;false&quot; the upper bits are truncated.
+If &quot;round = true&quot;, the result will be rounded.
+
+{{de 
+Der Fixed Multiply gibt das Produkt von a und b zurück.
+a, b und c haben die gleiche Bitbreite und Radix.
+Falls &quot;saturate = true&quot; ist, wird beim overflow die größt mögliche Zahl ausgegeben, wenn &quot;false&quot; werden die oberen Bits abgeschnitten.
+Falls &quot;round = true&quot; ist, wird das Ergebnis gerundet.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Mul</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a</string>
+        </entry>
+        <entry>
+          <string>fixedPoint</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b</string>
+        </entry>
+        <entry>
+          <string>fixedPoint</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>p</string>
+        </entry>
+        <entry>
+          <string>fixedPoint</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Mul</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Signed</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.mul_in_bits;
+this.Signed = args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 16;
+radix := 8;
+round := true;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>if (args.signed) {
+    global.fixed_format := 8;
+} else {
+    global.fixed_format := 7;
+}
+
+global.mul_in_bits := args.bits;
+global.mul_out_bits := 2 * args.bits;
+global.mul_out_radix := 2 * args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := global.mul_out_bits;
+in_radix := global.mul_out_radix;
+out_bits := args.bits;
+out_radix := args.radix;
+round := args.round;
+saturate := args.saturate;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="20"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="140" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="20"/>
+      <p2 x="220" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="20"/>
+      <p2 x="320" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="40"/>
+      <p2 x="140" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="60"/>
+      <p2 x="120" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="40"/>
+      <p2 x="120" y="60"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

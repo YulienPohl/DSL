@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The boolean nand-reduction takes an array of bits and returns the logical &quot;NAnd&quot; of all bits.
+
+{{de Die boolesche nand-Reduktion nimmt ein Array von Bits und gibt das logische &quot;NAnd&quot; aller Bits zurück.}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>NAnd-Red</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 8;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>in</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>2</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1*2</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.&apos;Input Splitting&apos; = &quot;&quot; + args.bits;
+this.&apos;Output Splitting&apos; = &quot;1*&quot; + args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>y := args.bits / 2;
+
+addWire(9, y, 11, 0);
+
+o := 0;
+for (i := 0; i &lt; args.bits; i++) {
+    if ((i = y) &amp; ((args.bits &amp; 1) = 0)) {
+        o = 1;
+    }
+
+    addWire(3, i, 5, i+o);
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NAnd</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Inputs = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="100" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>in out 
+loop(i, 1 &lt;&lt; 4)
+    let x = !((i &amp; 1) &amp; ((i &gt;&gt; 1) &amp; 1) &amp; ((i &gt;&gt; 2) &amp; 1) &amp; ((i &gt;&gt; 3) &amp; 1));
+    (i) (x)
+end loop</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>bits := 4;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-160"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

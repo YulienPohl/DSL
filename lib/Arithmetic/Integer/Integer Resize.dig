@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>Integer Resize expands or shrinks the bit width from &quot;in_bits&quot; to &quot;out_bits&quot;.
+If &quot;signed = False&quot; and &quot;in_bits &gt; out_bits&quot; the upper bits are truncated.
+If &quot;signed = True&quot; and &quot;in_bits &gt; out_bits&quot; the signbit will be kept.
+If &quot;signed = False&quot; and &quot;in_bits &lt; out_bits&quot; the upper bits are padded with 0.
+If &quot;signed = True&quot; and &quot;in_bits &lt; out_bits&quot; the signbit will be expanded.
+
+{{de 
+Integer Resize erweitert oder verkleinert die Bitbreite von &quot;in_bits&quot; zu &quot;out_bits&quot;.
+Falls &quot;signed = False&quot; und &quot;in_bits &gt; out_bits&quot; werden die oberen Bits abgeschnitten.
+Falls &quot;signed = True&quot; und &quot;in_bits &gt; out_bits&quot; werden der Signbit beibehalten.
+Falls &quot;signed = False&quot; und &quot;in_bits &lt; out_bits&quot; werden die oberen Bits mit 0 aufgefüllt.
+Falls &quot;signed = True&quot; und &quot;in_bits &lt; out_bits&quot; werden der Signbit erweitert.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Resize</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>in</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.in_bits;
+this.intFormat = global.int_format;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-40" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.out_bits;
+this.intFormat = global.int_format;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := 8;
+out_bits := 4;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>if (args.signed) {
+    global.int_format := 2;
+} else {
+    global.int_format := 1;
+}
+
+if (args.in_bits &lt;= args.out_bits) {
+    ext := addComponent(&quot;Bit Extender.dig&quot;, 0, 0);
+    ext.in_bits := args.in_bits;
+    ext.out_bits := args.out_bits;
+    ext.signed := args.signed;
+
+    addWire(3, 0, 4, 0);
+} else if (args.in_bits &gt; args.out_bits) {
+    if (args.signed) {
+        sign_bit := args.in_bits - 1;
+        signed_bits := args.in_bits - args.out_bits - 1;
+    
+        sl := addComponent(&quot;Splitter&quot;, 0, 0);
+        sl.&apos;Input Splitting&apos; = &quot;&quot; + args.in_bits;
+        sl.&apos;Output Splitting&apos; = signed_bits + &quot;,&quot; + sign_bit + &quot;-&quot; + sign_bit;
+
+        sr := addComponent(&quot;Splitter&quot;, 3, 0);
+        sr.&apos;Input Splitting&apos; = signed_bits + &quot;,1&quot;;
+        sr.&apos;Output Splitting&apos; = &quot;&quot; + args.out_bits;
+        
+        addWire(1, 0, 3, 0);
+        addWire(1, 1, 3, 1);
+    } else {
+        sr := addComponent(&quot;Splitter&quot;, 3, 0);
+        sr.&apos;Input Splitting&apos; = &quot;&quot; + args.in_bits;
+        sr.&apos;Output Splitting&apos; = &quot;&quot; + args.out_bits;
+        
+        addWire(0, 0, 3, 0);
+    }
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-1120"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="80" y="0"/>
+      <p2 x="120" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-40" y="0"/>
+      <p2 x="0" y="0"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

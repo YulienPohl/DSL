@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Edge Detector emits a pulse when the edge changes.
+If &quot;edge = 0&quot;, the falling edge is detected.
+
+{{de 
+Der Edge Detector gibt ein Pulse aus wenn die sich die Flanke ändert.
+Wenn &quot;edge = 0&quot; ist, wird die fallende Flakne dedectiert.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>D</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>D_FF</elementName>
+      <elementAttributes/>
+      <pos x="60" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>runRealTime</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>C</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>D_FF</elementName>
+      <elementAttributes/>
+      <pos x="160" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>if (args.edge = 1) {
+    this.inverterConfig = [&quot;In_2&quot;];
+} else {
+    this.inverterConfig = [&quot;In_1&quot;];
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="260" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>e</string>
+        </entry>
+      </elementAttributes>
+      <pos x="360" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>falling</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>C D  e
+0 0  0
+C 0  0
+
+C 1  0
+C 0  1
+C 0  0
+
+C 1  0
+C 1  0
+C 0  1
+C 1  0
+C 0  1</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>edge := 0;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>edge := 0;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>if (args.edge = 1) {
+    addWire(12, -2, 13, -2);
+} else {
+    addWire(12, 0, 13, 0);
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>rising</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>C D  e
+0 0  0
+C 0  0
+
+C 1  1
+C 0  0
+
+C 1  1
+C 1  0
+C 0  0
+C 1  1
+C 0  0</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>edge := 1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-280"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="60" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="0"/>
+      <p2 x="140" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="0"/>
+      <p2 x="240" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="0"/>
+      <p2 x="160" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="-20"/>
+      <p2 x="360" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="20"/>
+      <p2 x="60" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="160" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="-40"/>
+      <p2 x="240" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="60"/>
+      <p2 x="40" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="60"/>
+      <p2 x="140" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="20"/>
+      <p2 x="40" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="140" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="-40"/>
+      <p2 x="140" y="0"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

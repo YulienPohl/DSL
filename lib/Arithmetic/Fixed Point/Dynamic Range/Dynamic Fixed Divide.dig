@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Dynamic Fixed Divide returns the quotient of a and b.
+This circuit is the equivalent of the VHDL standard library &quot;fixed_generic_pkg&quot;.
+a, b can have different bit width and radix, where s is the bit width of &quot;a_bits + b_bits&quot;.
+If &quot;signed = True&quot;, the radix of s is &quot;args.a_radix + (args.b_bits - args.b_radix) - 1&quot;.
+If &quot;signed = False&quot;, the radix of s is &quot;args.a_radix + (args.b_bits - args.b_radix)&quot;.
+If &quot;round = true&quot;, the result will be rounded.
+If &quot;b = 0&quot; the largest possible number is output.
+
+{{de 
+Der Dynamic Fixed Divide gibt den Quotient von a und b zurück.
+Dieser Schaltkreis is das Äquivalent von der VHDL Standard Bibliothek &quot;fixed_generic_pkg&quot;
+a, b können eine unterschiedliche Bitbreite und Radix haben, wobei s die Bitbreite von &quot;a_bits + b_bits&quot; hat.
+Falls &quot;signed = True&quot;, ist der Radix von s &quot;args.a_radix + (args.b_bits - args.b_radix) - 1&quot;.
+Falls &quot;signed = False&quot;, ist der Radix von s &quot;args.a_radix + (args.b_bits - args.b_radix)&quot;.
+Falls &quot;round = true&quot; ist, wird das Ergebnis gerundet.
+Falls &quot;b = 0&quot; die größtmögliche Zahl ausgegeben.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Div</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.a_bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.a_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.b_bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = args.b_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>q</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.out_bits;
+this.intFormat = global.fixed_format;
+this.fixedPoint = global.out_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="420" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>a_bits := 16;
+a_radix := 8;
+b_bits := 16;
+b_radix := 8;
+round := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := args.a_bits;
+in_radix := args.a_radix;
+out_bits := global.div_bits;
+out_radix := global.div_in_radix;
+round := false;
+saturate := false;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := args.b_bits;
+in_radix := args.b_radix;
+out_bits := global.div_bits;
+out_radix := args.b_radix;
+round := false;
+saturate := false;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>global.out_bits := args.a_bits + args.b_bits;
+
+guard_bits := 3;
+
+if (args.signed) {
+    global.out_radix := args.a_radix + (args.b_bits - args.b_radix) - 1;
+    
+    global.div_bits  := global.out_bits + guard_bits;
+    global.div_in_radix := args.a_radix + args.b_bits + guard_bits - 1;
+    global.div_out_radix := global.out_radix + guard_bits;
+    
+    global.saturate := !(1 &lt;&lt; (global.out_bits - 1));
+
+    global.fixed_format := 8;
+} else {
+    global.out_radix := args.a_radix + (args.b_bits - args.b_radix);
+
+    global.div_bits := global.out_bits + guard_bits;
+    global.div_in_radix := args.a_radix + args.b_bits + guard_bits;
+    global.div_out_radix := global.out_radix + guard_bits;
+    
+    global.saturate := !(1 &lt;&lt; global.out_bits);
+
+    global.fixed_format := 7;
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-820"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Div</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.div_bits;
+this.Signed = args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Comparator</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.b_bits;
+this.Signed = args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.b_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.out_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="340" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.out_bits;
+this.Value = global.saturate;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="300" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := global.div_bits;
+in_radix := global.div_out_radix;
+out_bits := global.out_bits;
+out_radix := global.out_radix;
+round := args.round;
+saturate := false;
+signed := args.signed;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="240" y="0"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="60" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="0"/>
+      <p2 x="160" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="0"/>
+      <p2 x="340" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="0"/>
+      <p2 x="240" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="160" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="20"/>
+      <p2 x="420" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="-40"/>
+      <p2 x="320" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="120"/>
+      <p2 x="60" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="40"/>
+      <p2 x="340" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="60"/>
+      <p2 x="40" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="60"/>
+      <p2 x="140" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="60"/>
+      <p2 x="60" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="140"/>
+      <p2 x="60" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="140"/>
+      <p2 x="360" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="-40"/>
+      <p2 x="320" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="60"/>
+      <p2 x="40" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="40"/>
+      <p2 x="360" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="140" y="60"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>To-Int</string>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>in</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="-1120" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Value = args.round_style;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-140" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 16;
+signed := true;
+round_style := 0;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-1100" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>32</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>23,8,1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-1040" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>8</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>7,1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-960" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>7,1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-860" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="-920" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Sub</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>9</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-700" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-720" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>9</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>dec</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Value = args.bits-2;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-740" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>65535</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>dec</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.Value = -1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-120" y="60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>23,1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>24</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-900" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-940" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>rom_lut := addComponent(&quot;ROM&quot;, 14, 4);
+rom_lut.Bits = 2;
+rom_lut.AddrBits = 4;
+rom_lut.rotation = 1;
+
+if (args.signed) {
+    global.int_format := 2;
+    
+    rom_lut.Data = [1, 2, 3, 1, 1, 2, 3, 1, 0, 0, 0, 3, 3, 3, 3, 3];
+    
+    const_max := addComponent(&quot;Const&quot;, 1, -7);
+    const_max.Bits = args.bits;
+    const_max.Value = !(1 &lt;&lt; (args.bits - 1));
+    const_max.rotation = 3;
+    const_max.intFormat = global.int_format;
+
+    mux_max := addComponent(&quot;Multiplexer&quot;, 5, -6);
+    mux_max.Bits = args.bits;
+
+    not_max := addComponent(&quot;Not&quot;, 2, -4);
+    not_max.Bits = args.bits;
+
+    addWire(1, -7, 1, -4);
+    addWire(1, -4, 2, -4);
+    addWire(1, -6, 5, -6);
+    addWire(4, -4, 5, -4);
+
+
+    mux_val := addComponent(&quot;Multiplexer&quot;, 5, -2);
+    mux_val.Bits = args.bits;
+
+    neg_val := addComponent(&quot;Neg&quot;, 1, 0);
+    neg_val.Bits = args.bits;
+
+    addWire(0, 0, 1, 0);
+    addWire(0, 0, 0, -2);
+    addWire(0, -2, 5, -2);
+    addWire(4, 0, 5, 0);
+
+
+    s_val := addComponent(&quot;Splitter&quot;, 2, 2);
+    s_val.&apos;Input Splitting&apos; = &quot;&quot; + args.bits;
+    s_val.&apos;Output Splitting&apos; = (args.bits-1) + &quot;-&quot; + (args.bits-1);
+
+    addWire(0, 0, 0, 2);
+    addWire(0, 2, 2, 2);
+    addWire(3, 2, 11, 2);
+    addWire(11, 2, 11, 1);
+
+    mux_val_max := addComponent(&quot;Multiplexer&quot;, 10, -1);
+    mux_val_max.Bits = args.bits;
+
+    addWire(7, -1, 10, -1);
+    addWire(7, -5, 9, -5);
+    addWire(9, -5, 9, 1);
+    addWire(9, 1, 10, 1);
+    addWire(9, -2, 13, -2);
+
+    addWire(-13, 7, 8, 7);
+    addWire(8, 7, 8, -3);
+    addWire(8, -3, 6, -3);
+    addWire(6, -3, 6, -4);
+    addWire(8, 1, 6, 1);
+    addWire(8, 1, 6, 1);
+    addWire(6, 1, 6, 0);
+} else {
+    global.int_format := 1;
+    
+    rom_lut.Data = [1, 2, 3, 1, 1, 1, 1, 1, 0, 0, 0, 3, 3, 3, 3, 3];
+    
+    const_max := addComponent(&quot;Const&quot;, 13, -2);
+    const_max.Bits = args.bits;
+    const_max.Value = !(1 &lt;&lt; args.bits);
+    const_max.intFormat = global.int_format;
+    
+    addWire(0, 0, 12, 0);
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-980" y="-2420"/>
+    </visualElement>
+    <visualElement>
+      <elementName>BarrelShifter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>19</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits + 3;</string>
+        </entry>
+        <entry>
+          <string>direction</string>
+          <direction>right</direction>
+        </entry>
+      </elementAttributes>
+      <pos x="-540" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-80" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>16,3</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>19</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.&apos;Input Splitting&apos; = args.bits + &quot;,3&quot;;
+this.&apos;Output Splitting&apos; = &quot;&quot; + (args.bits + 3);</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-720" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-760" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>splitterSpreading</string>
+          <int>3</int>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>9</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>4,3,1</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>s := bitsNeededFor(args.bits + 3);
+this.&apos;Output Splitting&apos; = s + &quot;,&quot; + (9 - s - 1) + &quot;,&quot; + 1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-600" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>19</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>16,3</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.&apos;Input Splitting&apos; = &quot;&quot; + (args.bits + 3);
+this.&apos;Output Splitting&apos; = args.bits + &quot;,3&quot;;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-360" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Add</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-180" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>dec</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-200" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>19</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits + 3;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-440" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>dec</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits + 3;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-460" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or Reduce.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 9 - bitsNeededFor(args.bits + 3) - 1;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-540" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Selector Bits</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+      </elementAttributes>
+      <pos x="-40" y="-120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>round style
+00 - round nearest
+01 - round inf
+10 - round neginf
+11 - round zero</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-180" y="-540"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>3</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1*3</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-280" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>16</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.&apos;Input Splitting&apos; = &quot;&quot; + args.bits;
+this.&apos;Output Splitting&apos; = &quot;1&quot;;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-300" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Inputs</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-240" y="-380"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="-160" y="-360"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>In_2</string>
+          </inverterConfig>
+        </entry>
+      </elementAttributes>
+      <pos x="-160" y="-280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="-160" y="-200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="-100" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>BitExtender</elementName>
+      <elementAttributes>
+        <entry>
+          <string>outputBits</string>
+          <int>9</int>
+        </entry>
+      </elementAttributes>
+      <pos x="-800" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>float to unsigned integer
+if (in == nan | in == quiet_nan)
+out = 0
+else if (in == pos_zero | in == neg_inf | in == neg_zero | in == neg_normal | in == pos_denormal | in == neg_denormal)
+out = 0
+else if (in == pos_inf)
+out = max
+else
+out = int(in)</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-720"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>float to signed integer
+if (in == nan | in == quiet_nan)
+out = 0
+else if (in == pos_zero | in == neg_zero | in == pos_denormal | in == neg_denormal)
+out = 0
+else if (in == pos_inf | in == neg_inf)
+out = -1^sign * max
+else
+out = int(in)</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Float Classify.dig</elementName>
+      <elementAttributes/>
+      <pos x="-1020" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Resize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>in_bits := 24;
+in_radix := 23;
+out_bits := args.bits;
+out_radix := args.bits - 1;
+round := false;
+saturate := false;
+signed := false;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-840" y="-60"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Selector Bits</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="280" y="-80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="240" y="-80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.intFormat = global.int_format;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="360" y="-40"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="-460" y="0"/>
+      <p2 x="-440" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-200" y="0"/>
+      <p2 x="-180" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-340" y="0"/>
+      <p2 x="-280" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="240" y="0"/>
+      <p2 x="260" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-40" y="0"/>
+      <p2 x="0" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-740" y="0"/>
+      <p2 x="-720" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-260"/>
+      <p2 x="-60" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="-140" y="-100"/>
+      <p2 x="-120" y="-100"/>
+    </wire>
+    <wire>
+      <p1 x="-580" y="100"/>
+      <p2 x="-60" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-200"/>
+      <p2 x="-160" y="-200"/>
+    </wire>
+    <wire>
+      <p1 x="-940" y="-40"/>
+      <p2 x="-900" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="-760" y="-40"/>
+      <p2 x="-720" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="-480" y="-40"/>
+      <p2 x="-440" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-40"/>
+      <p2 x="280" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="-40"/>
+      <p2 x="360" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="-180" y="-360"/>
+      <p2 x="-160" y="-360"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="-360"/>
+      <p2 x="-240" y="-360"/>
+    </wire>
+    <wire>
+      <p1 x="-1020" y="40"/>
+      <p2 x="-960" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="-580" y="40"/>
+      <p2 x="-540" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="-480" y="40"/>
+      <p2 x="-420" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="-940" y="40"/>
+      <p2 x="-860" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="-840" y="40"/>
+      <p2 x="-800" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="-740" y="40"/>
+      <p2 x="-700" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="-980" y="140"/>
+      <p2 x="-260" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="-200" y="-240"/>
+      <p2 x="-180" y="-240"/>
+    </wire>
+    <wire>
+      <p1 x="240" y="-80"/>
+      <p2 x="260" y="-80"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-80"/>
+      <p2 x="280" y="-80"/>
+    </wire>
+    <wire>
+      <p1 x="-340" y="-20"/>
+      <p2 x="-300" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-400" y="-20"/>
+      <p2 x="-360" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-620" y="-20"/>
+      <p2 x="-600" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-580" y="-20"/>
+      <p2 x="-540" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-120" y="-20"/>
+      <p2 x="-80" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-20"/>
+      <p2 x="280" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-300" y="-20"/>
+      <p2 x="-180" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-340"/>
+      <p2 x="-40" y="-340"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="-340"/>
+      <p2 x="-240" y="-340"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-180"/>
+      <p2 x="-80" y="-180"/>
+    </wire>
+    <wire>
+      <p1 x="-640" y="20"/>
+      <p2 x="-620" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-1020" y="20"/>
+      <p2 x="-980" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-220" y="20"/>
+      <p2 x="-180" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="20"/>
+      <p2 x="-80" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-1120" y="20"/>
+      <p2 x="-1080" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-720" y="20"/>
+      <p2 x="-700" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-1080" y="20"/>
+      <p2 x="-1040" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-1080" y="180"/>
+      <p2 x="-1020" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="-920" y="180"/>
+      <p2 x="280" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-280"/>
+      <p2 x="-160" y="-280"/>
+    </wire>
+    <wire>
+      <p1 x="-980" y="-60"/>
+      <p2 x="-900" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="-880" y="-60"/>
+      <p2 x="-840" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="-780" y="-60"/>
+      <p2 x="-720" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="-700" y="-60"/>
+      <p2 x="-540" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="-220" y="-60"/>
+      <p2 x="-80" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-60"/>
+      <p2 x="280" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="-300" y="-380"/>
+      <p2 x="-240" y="-380"/>
+    </wire>
+    <wire>
+      <p1 x="-1020" y="60"/>
+      <p2 x="-980" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="-720" y="60"/>
+      <p2 x="-700" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="-940" y="60"/>
+      <p2 x="-920" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="-880" y="60"/>
+      <p2 x="-860" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="-120" y="60"/>
+      <p2 x="-100" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="-160"/>
+      <p2 x="-200" y="-160"/>
+    </wire>
+    <wire>
+      <p1 x="-200" y="-160"/>
+      <p2 x="-160" y="-160"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-320"/>
+      <p2 x="-160" y="-320"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="80"/>
+      <p2 x="320" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="-160"/>
+      <p2 x="-260" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="-260" y="-340"/>
+      <p2 x="-260" y="-180"/>
+    </wire>
+    <wire>
+      <p1 x="-420" y="0"/>
+      <p2 x="-420" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="-140"/>
+      <p2 x="-100" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="-100" y="20"/>
+      <p2 x="-100" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-80"/>
+      <p2 x="260" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="-20"/>
+      <p2 x="260" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-200" y="-240"/>
+      <p2 x="-200" y="-160"/>
+    </wire>
+    <wire>
+      <p1 x="-40" y="-340"/>
+      <p2 x="-40" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="-300" y="-160"/>
+      <p2 x="-300" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="-300" y="-380"/>
+      <p2 x="-300" y="-180"/>
+    </wire>
+    <wire>
+      <p1 x="-620" y="-20"/>
+      <p2 x="-620" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="0"/>
+      <p2 x="300" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="-80"/>
+      <p2 x="-80" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="-180"/>
+      <p2 x="-80" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="-720" y="0"/>
+      <p2 x="-720" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-320"/>
+      <p2 x="-240" y="-280"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-280"/>
+      <p2 x="-240" y="-200"/>
+    </wire>
+    <wire>
+      <p1 x="-240" y="-200"/>
+      <p2 x="-240" y="-180"/>
+    </wire>
+    <wire>
+      <p1 x="-980" y="60"/>
+      <p2 x="-980" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="-980" y="-60"/>
+      <p2 x="-980" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-1080" y="20"/>
+      <p2 x="-1080" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="-160"/>
+      <p2 x="-280" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-280" y="-360"/>
+      <p2 x="-280" y="-180"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="80"/>
+      <p2 x="280" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="-220" y="-60"/>
+      <p2 x="-220" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="-60" y="20"/>
+      <p2 x="-60" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="-60" y="-260"/>
+      <p2 x="-60" y="-120"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

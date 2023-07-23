@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Delay-Reg</string>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>D</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits=args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-80" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 8;
+delay := 4;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>for (i := 0; i &lt; args.delay; i++) {
+    x := i*7;
+    r := addComponent(&quot;Register Synchronous.dig&quot;, x, 0);
+    
+    addWire(x+3,2,x+4,2);
+    addWire(x+4,2,x+4,0);
+    addWire(x+4,0,x+7,0);
+    
+    t1 := addComponent(&quot;Tunnel&quot;, x-1, 1);
+    t1.NetName = &quot;en&quot;;
+    t1.rotation = 2;
+
+    t2 := addComponent(&quot;Tunnel&quot;, x-1, 3);
+    t2.NetName = &quot;C&quot;;
+    t2.rotation = 2;
+    
+    t3 := addComponent(&quot;Tunnel&quot;, x-1, 4);
+    t3.NetName = &quot;clr&quot;;
+    t3.rotation = 2;
+
+    addWire(x-1,1,x,1);
+    addWire(x-1,3,x,3);
+    addWire(x-1,4,x,4);
+}
+
+out := addComponent(&quot;Out&quot;, args.delay*7 ,0);
+out.Bits = args.bits;
+out.Label = &quot;Q&quot;;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-880"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>en</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-80" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>C</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-80" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>clr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-80" y="220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>C</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-40" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>en</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-40" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Tunnel</elementName>
+      <elementAttributes>
+        <entry>
+          <string>NetName</string>
+          <string>clr</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-40" y="220"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="-80" y="0"/>
+      <p2 x="0" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="180"/>
+      <p2 x="-40" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="140"/>
+      <p2 x="-40" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="220"/>
+      <p2 x="-40" y="220"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

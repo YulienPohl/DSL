@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Distance circuit outputs the absolute difference between a and b, and whether a or b is greater.
+
+{{de Der Distance Schaltkreis gibt den absoluten Differnez zwischen a und b aus, sowie ob a oder b größer ist.}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Distance</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.intFormat = global.int_format;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>d</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>dec</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="380" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.intFormat = global.int_format;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Sub</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="100" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 8;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="300" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Neg</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>XNOr</elementName>
+      <elementAttributes>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>In_2</string>
+          </inverterConfig>
+        </entry>
+        <entry>
+          <string>Inputs</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>if (args.signed) {
+    s1 := addComponent(&quot;Splitter&quot;, 5, 5);
+    s1.&apos;Input Splitting&apos; = &quot;&quot; + args.bits;
+    s1.&apos;Output Splitting&apos; = (args.bits-1) + &quot;-&quot; + (args.bits-1);
+
+    s2 := addComponent(&quot;Splitter&quot;, 5, 6);
+    s2.&apos;Input Splitting&apos; = &quot;&quot; + args.bits;
+    s2.&apos;Output Splitting&apos; = (args.bits-1) + &quot;-&quot; + (args.bits-1);
+
+    global.int_format := 2;
+} else {
+    g1 := addComponent(&quot;Ground&quot;, 6, 5);
+    g1.rotation = 1;
+
+    g2 := addComponent(&quot;Ground&quot;, 6, 6);
+    g2.rotation = 1;
+
+    global.int_format := 1;
+}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-620"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>s</string>
+        </entry>
+      </elementAttributes>
+      <pos x="380" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>a b d s
+loop(aa, 1 &lt;&lt; 4)
+    loop(bb, 1 &lt;&lt; 4)
+        let ss = ite(aa &gt;= bb, 0, 1);
+	let dd = ite(aa &gt;= bb, aa - bb, bb - aa);
+        (aa) (bb) (dd) (ss)
+    end loop
+end loop</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>bits := 4;
+signed := false;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>a b d s
+loop(aa, 1 &lt;&lt; 3)
+    loop(bb, 1 &lt;&lt; 3)
+        let ss = ite(aa &gt;= bb, 0, 1);
+	let dd = ite(aa &gt;= bb, aa - bb, bb - aa);
+        (aa) (bb) (dd) (ss)
+    end loop
+end loop
+
+loop(aa, 1 &lt;&lt; 3)
+    loop(bb, 1 &lt;&lt; 3)
+	let aa = -aa;
+	let bb = -bb;
+        let ss = ite(aa &gt;= bb, 0, 1);
+	let dd = ite(aa &gt;= bb, aa - bb, bb - aa);
+        (aa) (bb) (dd) (ss)
+    end loop
+end loop</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>bits := 4;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-160"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="0"/>
+      <p2 x="200" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="0"/>
+      <p2 x="300" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="100" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="80"/>
+      <p2 x="220" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="20"/>
+      <p2 x="380" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="20"/>
+      <p2 x="180" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="20"/>
+      <p2 x="100" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="100"/>
+      <p2 x="320" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="100"/>
+      <p2 x="60" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="100"/>
+      <p2 x="200" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="100"/>
+      <p2 x="380" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="100"/>
+      <p2 x="100" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="40"/>
+      <p2 x="220" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="40"/>
+      <p2 x="300" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="40"/>
+      <p2 x="100" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="120"/>
+      <p2 x="100" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="120"/>
+      <p2 x="220" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="40"/>
+      <p2 x="320" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="20"/>
+      <p2 x="180" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="0"/>
+      <p2 x="200" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="40" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="20"/>
+      <p2 x="60" y="100"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

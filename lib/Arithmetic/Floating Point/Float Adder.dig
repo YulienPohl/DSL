@@ -1,0 +1,2438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Add</string>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>round_style := 0;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>3,24,1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>28</string>
+        </entry>
+      </elementAttributes>
+      <pos x="360" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>3,24,1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>28</string>
+        </entry>
+      </elementAttributes>
+      <pos x="360" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Comparator</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Signed</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>dec</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="440" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>28</int>
+        </entry>
+      </elementAttributes>
+      <pos x="580" y="40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>28</int>
+        </entry>
+      </elementAttributes>
+      <pos x="580" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>BarrelShifter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>28</int>
+        </entry>
+        <entry>
+          <string>direction</string>
+          <direction>right</direction>
+        </entry>
+      </elementAttributes>
+      <pos x="840" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Find Rightmost.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 28;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="760" y="320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes/>
+      <pos x="740" y="360"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Sub</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>BitExtender</elementName>
+      <elementAttributes>
+        <entry>
+          <string>inputBits</string>
+          <int>6</int>
+        </entry>
+        <entry>
+          <string>outputBits</string>
+          <int>8</int>
+        </entry>
+      </elementAttributes>
+      <pos x="860" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>8</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>7-7</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1040" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>6</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>5-5</string>
+        </entry>
+      </elementAttributes>
+      <pos x="880" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>In_1</string>
+          </inverterConfig>
+        </entry>
+      </elementAttributes>
+      <pos x="1080" y="300"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>28</int>
+        </entry>
+      </elementAttributes>
+      <pos x="940" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>28</int>
+        </entry>
+      </elementAttributes>
+      <pos x="920" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>splitterSpreading</string>
+          <int>3</int>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>8</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>5,2</string>
+        </entry>
+      </elementAttributes>
+      <pos x="780" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>8</int>
+        </entry>
+        <entry>
+          <string>flipSelPos</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="600" y="420"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Comparator</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>28</int>
+        </entry>
+      </elementAttributes>
+      <pos x="460" y="220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="540" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="620" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="940" y="380"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>mirror</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>splitterSpreading</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>28</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1,27</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1020" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>mirror</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>splitterSpreading</string>
+          <int>3</int>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>1,27</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>28</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1140" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes/>
+      <pos x="1060" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Adder Subtractor.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 28;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1260" y="180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="1280" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or Reduce.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>bits := 28;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1340" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes/>
+      <pos x="1160" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes/>
+      <pos x="1220" y="-120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>XOr</elementName>
+      <elementAttributes/>
+      <pos x="1160" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>RectHeight</string>
+          <int>9</int>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Sign Control</string>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>13</int>
+        </entry>
+      </elementAttributes>
+      <pos x="1100" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>RectHeight</string>
+          <int>23</int>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Significant Swap</string>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>21</int>
+        </entry>
+      </elementAttributes>
+      <pos x="260" y="20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>RectHeight</string>
+          <int>16</int>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Alignment</string>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>25</int>
+        </entry>
+      </elementAttributes>
+      <pos x="700" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>if (a == quiet_nan | a == nan | b == quiet_nan | b == nan
+| (a == pos_inf &amp; b == neg_inf) | (a == neg_inf &amp; b == pos_inf))
+result = quiet_nan
+
+else if (a == pos_inf | b == pos_inf)
+result = pos_inf
+
+else if (a == neg_inf | b == neg_inf)
+result = neg_inf
+
+else if (a == neg_zero &amp; b == neg_zero)
+result = neg_zero
+
+else
+s = a + b</string>
+        </entry>
+      </elementAttributes>
+      <pos x="900" y="-680"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>flipSelPos</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="1540" y="240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>s</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="1620" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>cancellation</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>a b s
+0xbcbffffe 0x3d000000 0x3c000004
+0x2f87fb11 0xaf87fb10 0x24000000
+0x3b3ffffc 0xbb800001 0xba80000c
+0x4f3ffffc 0xcf800002 0xce800010
+0x8b80002a 0x0b3fffe8 0x8a8000d8
+0x123fff36 0x92800037 0x91800270
+0xe13ffddb 0x6180035a 0x608011b2
+0x04bffe1f 0x85001470 0x84005582
+0x673f8562 0xe78014a9 0xe68147e0
+0xcabedfcc 0x4b006286 0x4a03ca80
+0xdf19614a 0x5f17de6a 0xdbc17000
+0xab2d43d8 0x2b2b0317 0xa8103040
+0x5e8df69c 0xde94ed9d 0xdc5ee020
+0x8090e190 0x0099734b 0x000891bb
+0xaa35e086 0x2a03147d 0xa94b3024
+0x14400000 0x94800000 0x93800000
+0xf00e7d9d 0x700e7d9c 0xe4800000
+0x5b000000 0xdabffffe 0x5a000004
+0x2b3ffffe 0xab800001 0xaa800008
+0x6f31ef65 0xef31ef5e 0x64e00000
+0xa31423af 0x231423a4 0x99300000
+0x4819acbe 0xc819acac 0x3e900000
+0xc6a53d9f 0x46a53de9 0x3e140000
+0x9a34ec91 0x1a34ebae 0x92630000
+0xc03ffbee 0x40800168 0x3f800dc4
+0xf025b216 0x7025c1b4 0x6a79e000
+0x3c3faabe 0xbc8005c0 0xbb80c184
+0x7cbf4c29 0xfd001be3 0xfc01d73a
+0x778175f8 0xf73637d8 0x76996830
+0x9e1cebe4 0x1e357186 0x1cc42d10
+0xf200b51e 0x6f3e7739 0xf1fb7682
+0xddb0dec8 0x55888880 0xddb0de3f
+0x591aed32 0x60bfffc6 0x60c000fc</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>round_style := 0;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or Reduce.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 2;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="840" y="240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Distance.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 8;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="340" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>ROM</elementName>
+      <elementAttributes>
+        <entry>
+          <string>AddrBits</string>
+          <int>4</int>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>4</int>
+        </entry>
+        <entry>
+          <string>Data</string>
+          <data>0,1,0,0,2,4,0,0,8,8</data>
+        </entry>
+      </elementAttributes>
+      <pos x="280" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>ROM</elementName>
+      <elementAttributes>
+        <entry>
+          <string>AddrBits</string>
+          <int>4</int>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>4</int>
+        </entry>
+        <entry>
+          <string>Data</string>
+          <data>0,1,0,0,2,4,0,0,8,8</data>
+        </entry>
+      </elementAttributes>
+      <pos x="380" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+      </elementAttributes>
+      <pos x="420" y="-140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>4</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1*4</string>
+        </entry>
+      </elementAttributes>
+      <pos x="300" y="-240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>4</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1*4</string>
+        </entry>
+      </elementAttributes>
+      <pos x="400" y="-240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="500" y="-480"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="500" y="-400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes/>
+      <pos x="500" y="-320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Inputs</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="600" y="-400"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes/>
+      <pos x="500" y="-560"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes/>
+      <pos x="500" y="-640"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes/>
+      <pos x="500" y="-720"/>
+    </visualElement>
+    <visualElement>
+      <elementName>PriorityEncoder</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Selector Bits</string>
+          <int>2</int>
+        </entry>
+      </elementAttributes>
+      <pos x="720" y="-440"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>2139095041</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="780" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>2139095040</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="780" y="-180"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>4286578688</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="780" y="-200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>2147483648</long>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="780" y="-220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Multiplexer</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Selector Bits</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>flipSelPos</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="800" y="-220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Rectangle</elementName>
+      <elementAttributes>
+        <entry>
+          <string>RectHeight</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Special Cases</string>
+        </entry>
+        <entry>
+          <string>RectWidth</string>
+          <int>31</int>
+        </entry>
+      </elementAttributes>
+      <pos x="260" y="-740"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Float Break Number.dig</elementName>
+      <elementAttributes/>
+      <pos x="40" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Float Break Number.dig</elementName>
+      <elementAttributes/>
+      <pos x="40" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Float Normalize.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>exponent_bits := 8;
+round_style := args.round_style;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1400" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>alignment</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>a b s
+0x0480feb9 0x1236205f 0x1236205f
+0x153bf2d9 0x221d0a49 0x221d0a49
+0x2510165e 0x318737dc 0x318737dc
+0x050aea7e 0x112e01c6 0x112e01c7
+0x0585de9e 0x1114ebb0 0x1114ebb1
+0x5580d2bd 0x60bbd59a 0x60bbd59c
+0x563bc6dd 0x60a2bf84 0x60a2bf8a
+0x660fea62 0x700cad16 0x700cad1f
+0x758ade82 0x7f339700 0x7f339711
+0x072ca33c 0x10177d41 0x10177d6c
+0x1727975c 0x1fbe672a 0x1fbe677e
+0x173bfae0 0x1f2854be 0x1f28557a
+0x00000a3f 0x028fa8e6 0x028fa98a
+0x331f7e5f 0x3a36b2d0 0x3a36b54e
+0x6b9a327e 0x721d5cba 0x721d618c
+0x5415269e 0x5a0446a4 0x5a044ff6
+0x43a94a23 0x492e7437 0x492e8960
+0x44243e43 0x49151e21 0x49154731
+0x141f3262 0x18bc080a 0x18bc57a3
+0x009a0682 0x04a311f4 0x04a3abfb
+0x15153aa2 0x1889fbde 0x188b2653
+0x14a91e27 0x17b3e972 0x17b68deb
+0x658b22e2 0x68178fb2 0x681be8c9
+0x7585d702 0x77beb99c 0x77c7170c
+0x71aea660 0x7325edc4 0x733bc290
+0x718289e4 0x728fdb58 0x72b07dd1
+0x51bdbe04 0x5236c542 0x528ad222
+0x5238b224 0x521daf2c 0x52ab30a8
+0x12b36644 0x12049915 0x12f5b2ce
+0x06ae7a64 0x05aba2ff 0x06d96324
+0x06829de8 0x05159092 0x06954ffa
+0x12bd5208 0x10bc7a7c 0x12c919b0
+0x63384628 0x60a36466 0x633d614b
+0x63b37a48 0x608a0e50 0x63b5a281
+0x43ae4e68 0x4031183a 0x43afb098
+0x24294287 0x20180223 0x2429da89
+0x442436a7 0x3fbeec0d 0x4424961d
+0x100ce606 0x0b264036 0x100d0f96
+0x2087da25 0x1b0d2a20 0x2087ebca
+0x501bddaa 0x4a3737b2 0x501be91d
+0x2096d1ca 0x1a1e219c 0x2096d6bb
+0x5111c5ea 0x4a04cb86 0x5111c7fd
+0x710cba09 0x69abf570 0x710cbb61
+0x7187ae29 0x6992df5a 0x7187aebc
+0x611bf1ae 0x58bceced 0x611bf20c
+0x4196a5ce 0x38a396d7 0x4196a5f7
+0x421199ee 0x388a80c0 0x421199ff
+0x420c8e0d 0x38316aaa 0x420c8e18
+0x332e52c8 0x289510eb 0x332e52cd
+0x1a82964c 0x0fbf5e7e 0x1a82964f
+0x3eab05ab 0x3326b2a7 0x3eab05ac
+0x6f2619ca 0x630d7c90 0x6f2619cb
+0x3f210dea 0x32b4667a 0x3f210dea
+0x2f353170 0x221e540e 0x2f353170
+0x4fb0258f 0x42057df8 0x4fb0258f
+0x132b39ae 0x21ac07e1 0x21ac07e1
+0x61a5edce 0x419331cb 0x61a5edce</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>round_style := 0;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>cancellation-and-subnorm</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>a b s
+0x02400000 0x82800000 0x81800000
+0x82c00000 0x03000000 0x02000000
+0x03400000 0x83800000 0x82800000
+0x85c00000 0x06000000 0x05000000
+0x87000000 0x06c00000 0x86000000
+0x08400000 0x88800000 0x87800000
+0x8b000000 0x0ac00000 0x8a000000
+0x00400000 0x80800000 0x80400000
+0x811b9db8 0x011b9db7 0x80000002
+0x813ffffe 0x01800000 0x00800004
+0x033fffff 0x83800000 0x82800002
+0x041ba938 0x841ba937 0x00000080
+0x051d1cba 0x851d1cba 0x00000000
+0x053ffffe 0x85800000 0x84800004
+0x86800000 0x063ffffe 0x85800004
+0x86c00000 0x07000000 0x06000000
+0x87400000 0x07800000 0x06800000
+0x083d9efa 0x883d9efb 0x80008000
+0x08a8d2d2 0x88a8d2d1 0x00010000
+0x899ac7b5 0x099ac7b6 0x00040000
+0x09bfffff 0x8a000000 0x89000002
+0x0a800000 0x8a3ffffe 0x09800004
+0x8b800000 0x0b3fffff 0x8a800002
+0x8033afe8 0x0033afe7 0x80000001
+0x81800001 0x013fffff 0x80800006
+0x020c3f1a 0x820c3f18 0x00000010
+0x03000000 0x82bffffe 0x02000004
+0x03bffffe 0x84000001 0x83000008
+0x08000000 0x87bffffe 0x07000004
+0x093edd7c 0x893edd7e 0x80040000
+0x0a2f54de 0x8a2f54de 0x00000000
+0x0a8bb898 0x8a8bb897 0x00100000
+0x8b3272e5 0x0b3272e4 0x80200000
+0x80100000 0x00100000 0x00000000
+0x802a9ed6 0x002a9ed4 0x80000002
+0x8100ab04 0x0100ab01 0x80000006
+0x82095d92 0x02095d96 0x00000020
+0x05b080e1 0x85b080df 0x00000800
+0x06385fee 0x86385ff0 0x80001000
+0x072041be 0x872041c2 0x80008000
+0x879fc43e 0x079fc441 0x0000c000
+0x08800000 0x883ffffb 0x0780000a
+0x09208142 0x8920813f 0x00060000
+0x80080000 0x00080000 0x00000000
+0x0095b5af 0x8095b5a9 0x00000006
+0x810f81a4 0x010f819d 0x8000000e
+0x8196232a 0x01962330 0x00000018
+0x02000002 0x81bffff8 0x01000018
+0x02800002 0x823ffffa 0x01800014
+0x032da1d6 0x832da1dd 0x800000e0
+0x83800002 0x033ffffa 0x82800014
+0x04009001 0x84009006 0x80000280
+0x84bffff6 0x05000002 0x0400001c
+0x058ce498 0x858ce49f 0x80001c00
+0x06805880 0x86805886 0x80006000
+0x07bffff6 0x88000003 0x87000020
+0x08800004 0x883fffff 0x07800012
+0x890f191d 0x090f1922 0x000a0000
+0x093ffffe 0x89800006 0x8880001c
+0x09bffff8 0x8a000003 0x8900001c
+0x0008ce42 0x8008ce42 0x00000000
+0x0104a817 0x8104a808 0x0000001e
+0x82167729 0x02167733 0x00000050
+0x83000006 0x02bffff0 0x82000038
+0x04000002 0x83bffff2 0x03000024
+0x852e09df 0x052e09d4 0x80001600
+0x05800000 0x853fffe4 0x04800038
+0x863fffea 0x06800001 0x05800030
+0x86bffffd 0x07000008 0x06000026
+0x88800004 0x083fffea 0x8780003c
+0x802e52e2 0x002e52d8 0x8000000a
+0x8100000e 0x00bfffe2 0x8040003a
+0x82359ad2 0x02359af0 0x000000f0
+0x82800006 0x023fffe4 0x81800050
+0x0329e646 0x8329e65b 0x800002a0
+0x03800010 0x833fffec 0x02800068
+0x83bffff1 0x04000009 0x03000042
+0x04be05ec 0x84be05fc 0x80001000
+0x053df2fc 0x853df2ea 0x00002400
+0x05b65a70 0x85b65a54 0x00007000
+0x0611ab1e 0x8611ab30 0x80009000
+0x86800008 0x063fffec 0x85800048
+0x87b46fd5 0x07b46fed 0x00060000
+0x07bfffc5 0x88000000 0x87000076
+0x89000012 0x08bffffb 0x88000052
+0x00010000 0x80010000 0x00000000
+0x8006b0ec 0x0006b0ee 0x00000002
+0x80080004 0x0007fffe 0x80000006
+0x000ffffa 0x80100008 0x8000000e
+0x002727dc 0x802727ca 0x00000012
+0x0095419b 0x809541ca 0x8000002f
+0x02bfffcc 0x83000010 0x820000a8
+0x04000010 0x83bfffb4 0x030000d8
+0x852dafe5 0x052dafc2 0x80004600
+0x853fffa4 0x05800000 0x048000b8
+0x05bfffa7 0x86000003 0x850000be
+0x8680002e 0x063fffea 0x858000e4
+0x07299de0 0x87299dbb 0x0004a000
+0x083ffffe 0x8880003c 0x878000f4
+0x80020002 0x00020000 0x80000002
+0x0007fffe 0x80080006 0x80000008
+0x801c0686 0x001c069e 0x00000018
+0x00800042 0x803ffffa 0x00400048
+0x8213f202 0x0213f279 0x000003b8
+0x82bfffd1 0x0300003a 0x02000146
+0x038ba404 0x838ba46c 0x80001a00
+0x8400003f 0x03bfffd2 0x83000158
+0x843fffff 0x0480006c 0x038001b2
+0x85bfffdc 0x0600004b 0x05000174
+0x870b59f6 0x070b5982 0x800e8000
+0x883915fc 0x0839159c 0x80300000
+0x00004000 0x80004000 0x00000000
+0x0000fffe 0x80010002 0x80000004
+0x80078810 0x00078803 0x8000000d
+0x8007fff8 0x00080009 0x00000011
+0x00190698 0x801906c6 0x8000002e
+0x802a72f0 0x002a7360 0x00000070
+0x808000e5 0x003ffffc 0x804000e9
+0x012bf1b6 0x812bf2a2 0x800001d8
+0x81bdb746 0x01bdb802 0x000002f0
+0x82bacf98 0x02bad089 0x00000f10
+0x041e2a94 0x841e29ed 0x00005380
+0x84bfff4a 0x05000026 0x04000204
+0x058e2afe 0x858e2b87 0x80022400
+0x061129fc 0x86112a88 0x80046000
+0x863fffa2 0x06800089 0x058002e0
+0x8719fee6 0x0719ffa6 0x00180000
+0x87835166 0x0783507a 0x803b0000
+0x001fff74 0x8020002a 0x800000b6
+0x0139d4a0 0x8139d2d4 0x00000398
+0x833fff3a 0x0380018a 0x028007b4
+0x85bffede 0x0600007d 0x05000438
+0x0714a427 0x8714a2b0 0x002ee000
+0x800021b4 0x000021b6 0x00000002
+0x80006573 0x00006570 0x80000003
+0x00008002 0x80007ffe 0x00000004
+0x800209c0 0x000209ac 0x80000014
+0x8003fff0 0x00040024 0x00000034
+0x0007ffa0 0x80080020 0x80000080
+0x80175e11 0x00175e97 0x00000086
+0x008a7d1e 0x808a7ff2 0x800002d4
+0x8190ecaa 0x0190f051 0x00000e9c
+0x82224c5c 0x02224a02 0x800012d0
+0x040000c0 0x83bffc8a 0x030009ec
+0x84bfff04 0x050002ce 0x04000d30
+0x05bffe78 0x86000145 0x85000824
+0x00000800 0x80000800 0x00000000
+0x80002000 0x00001ffe 0x80000002
+0x0001221d 0x8001220a 0x00000013
+0x0003ffc4 0x8004002a 0x80000066
+0x803b4e44 0x003b4c34 0x80000210
+0x018004ad 0x813ffb0a 0x00801ca0
+0x822316d4 0x02231247 0x80002468
+0x82a6734e 0x02a67ac8 0x000077a0
+0x833ffb84 0x03800408 0x02801918
+0x85abd167 0x05abcadf 0x801a2000
+0x00002000 0x80001ffc 0x00000004
+0x00003ffe 0x80004009 0x8000000b
+0x0001ff8a 0x80020004 0x8000007a
+0x80040120 0x000401e8 0x000000c8
+0x0007ff92 0x80080132 0x800001a0
+0x001003d6 0x800fffe3 0x000003f3
+0x802ea436 0x002eac30 0x000007fa
+0x003ffa78 0x808002ea 0x80400872
+0x830008de 0x02bffed0 0x820025d8
+0x843ffc23 0x04800afb 0x038033a6
+0x85000423 0x04bfe8e6 0x84003ec0
+0x00000200 0x80000200 0x00000000
+0x00000400 0x800003fe 0x00000002
+0x800007fe 0x00000800 0x00000002
+0x80001d50 0x00001d49 0x80000007
+0x80001ff8 0x00002000 0x00000008
+0x00006ac4 0x80006ab2 0x00000012
+0x80200764 0x001ffa04 0x80000d60
+0x8137f8b0 0x0137e2ca 0x80002bcc
+0x018010ae 0x813fea68 0x00806de8
+0x02b2981c 0x82b2b4e2 0x8001cc60
+0x839835bc 0x03982262 0x8004d680
+0x04000e3a 0x83bfea95 0x030063be
+0x04801172 0x843ff070 0x038064e8
+0x04bfdb0a 0x85000c52 0x84007b34
+0x0001ffd0 0x80020162 0x80000192
+0x8003fc9c 0x00040072 0x000003d6
+0x801002b6 0x000ff869 0x80000a4d
+0x003fe0c0 0x8080203e 0x80403f7e
+0x00000080 0x80000080 0x00000000
+0x0000023c 0x80000239 0x00000003
+0x80000766 0x0000075f 0x80000007
+0x00000ff6 0x80001011 0x8000001b
+0x00006d7b 0x80006d0a 0x00000071
+0x80008018 0x00007f88 0x80000090
+0x80013648 0x00013777 0x0000012f
+0x00023184 0x80023495 0x80000311
+0x00080778 0x8007f83e 0x00000f3a
+0x802d0d5c 0x002ce356 0x80002a06
+0x80a5d782 0x00a641d9 0x00006a57
+0x00bf8bcc 0x81003426 0x8040dc80
+0x81801d37 0x013fb6a4 0x80810794
+0x82296d78 0x0229c599 0x0002c108
+0x0335b672 0x833543fc 0x000e4ec0
+0x84001bc6 0x03bfa382 0x83012814
+0x00000040 0x80000040 0x00000000
+0x000001f7 0x800001fa 0x80000003
+0x80007f3c 0x00008052 0x00000116
+0x8001103e 0x00010df2 0x8000024c
+0x00037e20 0x80037822 0x000005fe
+0x00040b03 0x8003fede 0x00000c25
+0x800d68d4 0x000d4f8e 0x80001946
+0x0010431c 0x8010056a 0x00003db2
+0x00398262 0x8039d420 0x800051be
+0x0284e362 0x82842fa5 0x000b3bd0
+0x8392e6be 0x039203e4 0x8038b680
+0x0000003d 0x8000003c 0x00000001
+0x80000106 0x000000ff 0x80000007
+0x80000245 0x0000024f 0x0000000a
+0x000003ea 0x80000404 0x8000001a
+0x80000d88 0x00000dbe 0x00000036
+0x80002910 0x00002888 0x80000088
+0x00037e5e 0x80038a10 0x80000bb2
+0x0008006a 0x8007cf08 0x00003162
+0x8080aed9 0x003eb5cc 0x8041f90d
+0x8205246c 0x0206dfdc 0x000ddb80
+0x83293dbc 0x03282411 0x80233560
+0x0000001b 0x8000001a 0x00000001
+0x8000006a 0x0000006d 0x00000003
+0x00000134 0x80000144 0x80000010
+0x00000fca 0x800010a0 0x800000d6
+0x000032de 0x800031d6 0x00000108
+0x80007fee 0x000085b2 0x000005c4
+0x8001ce2e 0x0001c58f 0x8000089f
+0x0001f42a 0x800205b6 0x8000118c
+0x8003f5da 0x00041af0 0x00002516
+0x800d43f7 0x000ce378 0x8000607f
+0x00163cce 0x80154f3a 0x0000ed94
+0x003cde9b 0x8080be92 0x8043dff7
+0x029fadb5 0x82a1c452 0x802169d0
+0x8000000d 0x0000000e 0x00000001
+0x00000024 0x80000022 0x00000002
+0x000007dc 0x8000078a 0x00000052
+0x8000479c 0x00004bd8 0x0000043c
+0x80211ab9 0x001e0002 0x80031ab7
+0x81041a6c 0x00be350a 0x8049ffce
+0x019e6380 0x81992481 0x0014fbfc
+0x80000006 0x00000006 0x00000000
+0x80000008 0x00000007 0x80000001
+0x80000011 0x00000014 0x00000003
+0x80000045 0x0000003c 0x80000009
+0x80000079 0x00000090 0x00000017
+0x000000f1 0x8000012c 0x8000003b
+0x00000223 0x800001aa 0x00000079
+0x80001ca2 0x00001fda 0x00000338
+0x80001e94 0x00002544 0x000006b0
+0x80003e80 0x000046ad 0x0000082d
+0x8000b3aa 0x00009dc0 0x800015ea
+0x800172e5 0x00019631 0x0000234c
+0x0001ef95 0x80024c82 0x80005ced
+0x800c48ac 0x000b227b 0x80012631
+0x80388aec 0x003e9b96 0x000610aa
+0x80974aca 0x00885ffc 0x800eeace
+0x81889270 0x013cbff4 0x80a8c9d8
+0x0000005e 0x80000040 0x0000001e
+0x80000100 0x00000173 0x00000073
+0x00000542 0x80000722 0x800001e0
+0x000012ba 0x800017e1 0x80000527
+0x80001c3a 0x00002952 0x00000d18
+0x80000002 0x00000001 0x80000001
+0x80000002 0x00000004 0x00000002
+0x80000008 0x00000004 0x80000004
+0x0000000e 0x80000008 0x00000006
+0x00000020 0x80000002 0x0000001e
+0x80000040 0x00000008 0x80000038
+0x00000204 0x8000003a 0x000001ca
+0x80000002 0x00004000 0x00003ffe
+0x000085a6 0x800019fa 0x00006bac
+0x00000052 0x80010042 0x8000fff0
+0x80027903 0x0003da33 0x00016130
+0x00040190 0x800007e4 0x0003f9ac
+0x8002d534 0x0008acba 0x0005d786
+0x00200072 0x80007878 0x001f87fa
+0x808067be 0x00196306 0x806704b8
+0x00000001 0x00000000 0x00000001
+0x00000001 0x80000003 0x80000002
+0x00000008 0x80000002 0x00000006
+0x80000006 0x80000026 0x8000002c
+0x8000006e 0x80000001 0x8000006f
+0x800000e6 0x80000000 0x800000e6
+0x00000126 0x00000000 0x00000126
+0x8000019c 0x000003f2 0x00000256
+0x0000000a 0x00000c9a 0x00000ca4
+0x80001376 0x00000002 0x80001374
+0x000038e0 0x800016ca 0x00002216
+0x00005305 0x80000000 0x00005305
+0x80004c97 0x8000860a 0x8000d2a1
+0x00000000 0x00000000 0x00000000
+0x80000004 0x80000008 0x8000000c
+0x00000010 0x00000010 0x00000020
+0x000001fb 0x00000796 0x00000991
+0x000003d4 0x00001cc0 0x00002094
+0x00002e64 0x000039a6 0x0000680a
+0x0000fd1b 0x00000ef5 0x00010c10
+0x80000b5c 0x8001ffa2 0x80020afe
+0x0007d1da 0x00003eaa 0x00081084
+0x001ffffa 0x0000000c 0x00200006
+0x01000000 0x80c00000 0x00400000
+0x01400000 0x81800000 0x80800000
+0x01c00000 0x82000000 0x81000000
+0x02800000 0x82400000 0x01800000
+0x83000000 0x02c00000 0x82000000
+0x03c00000 0x84000000 0x83000000
+0x84800000 0x04400000 0x83800000
+0x05400000 0x85800000 0x84800000
+0x06400000 0x86800000 0x85800000
+0x07000000 0x86c00000 0x06000000
+0x88400000 0x08800000 0x07800000
+0x89000000 0x08c00000 0x88000000
+0x09800000 0x89400000 0x08800000
+0x8a000000 0x09c00000 0x89000000
+0x8a400000 0x0a800000 0x09800000
+0x0ac00000 0x8b000000 0x8a000000
+0x8b800000 0x0b400000 0x8a800000
+0x8bc00000 0x0c000000 0x0b000000
+0x80400000 0x00800000 0x00400000
+0x0133cce7 0x8133cce8 0x80000002
+0x82800000 0x023fffff 0x81800002
+0x83800000 0x033fffff 0x82800002
+0x05050b0a 0x85050b0a 0x00000000
+0x07000000 0x86bfffff 0x06000002
+0x07800000 0x873fffff 0x06800002
+0x888c0698 0x088c0698 0x00000000
+0x099c7338 0x899c7339 0x80040000
+0x8abe88fc 0x0abe88fd 0x00100000
+0x82bffffe 0x03000001 0x02000008
+0x83a14043 0x03a14042 0x80000040
+0x83bffffe 0x04000000 0x03000004
+0x04aaec55 0x84aaec56 0x80000100
+0x8538f5f0 0x0538f5f2 0x00000400
+0x07bffffc 0x88000000 0x87000008
+0x08bffffc 0x89000000 0x88000008
+0x09af3f5e 0x89af3f5e 0x00000000
+0x8a000000 0x09bffffe 0x89000004
+0x0a876510 0x8a87650e 0x00200000
+0x0b000002 0x8ac00000 0x0a000008
+0x80100000 0x00100000 0x00000000
+0x00200000 0x80200000 0x00000000
+0x00837786 0x80837789 0x80000003
+0x00bfffff 0x81000002 0x80400005
+0x01828104 0x81828107 0x8000000c
+0x81bffffa 0x02000000 0x0100000c
+0x82badb74 0x02badb76 0x00000020
+0x04bffffb 0x85000000 0x8400000a
+0x85c00000 0x06000003 0x0500000c
+0x873f527c 0x073f527e 0x00004000
+0x87800002 0x07400000 0x86800008
+0x883ffffc 0x08800001 0x0780000c
+0x08bffffb 0x89000001 0x8800000e
+0x09800002 0x893ffffe 0x0880000c
+0x8a000002 0x09bfffff 0x8900000a
+0x011fa542 0x811fa53c 0x0000000c
+0x81bffff8 0x02000003 0x0100001c
+0x83800002 0x033ffffa 0x82800014
+0x04000002 0x83bffff9 0x03000016
+0x04a500c6 0x84a500cd 0x80000700
+0x858e171b 0x058e1720 0x00001400
+0x8a05be8b 0x0a05be90 0x00280000
+0x80080000 0x00080000 0x00000000
+0x00200004 0x801ffffd 0x00000007
+0x00800008 0x803ffff8 0x00400010
+0x81000000 0x00bffff0 0x80400010
+0x81aa24cd 0x01aa24d8 0x0000002c
+0x02800008 0x823ffff4 0x01800038
+0x841df3b6 0x041df3c2 0x00000600
+0x0480000c 0x84400000 0x03800030
+0x05000001 0x84bfffe9 0x04000032
+0x06186536 0x8618652c 0x00005000
+0x86a164c8 0x06a164bc 0x8000c000
+0x07000006 0x86bfffec 0x06000040
+0x07bffff8 0x88000004 0x87000020
+0x8925a0d0 0x0925a0c3 0x801a0000
+0x893ffff4 0x09800008 0x08800038
+0x80103fc0 0x00103fc5 0x00000005
+0x00ba86dd 0x80ba86f7 0x8000001a
+0x0380000d 0x833ffff7 0x02800046
+0x03bfffdb 0x84000000 0x8300004a
+0x04b58a6f 0x84b58a57 0x00001800
+0x05000015 0x84bffff9 0x04000062
+0x87800018 0x073ffffb 0x8680006a
+0x083fffe2 0x88800007 0x87800058
+0x00020000 0x80020000 0x00000000
+0x00080000 0x8007fff8 0x00000008
+0x000ffff8 0x80100002 0x8000000a
+0x001ffff2 0x80200010 0x8000001e
+0x00800002 0x803fffd8 0x0040002a
+0x81115fd0 0x01115f92 0x8000007c
+0x81b1d96c 0x01b1d944 0x800000a0
+0x0300000c 0x82bfffaa 0x020000dc
+0x83bffff7 0x04000020 0x03000092
+0x05800024 0x853fffe4 0x048000c8
+0x06800024 0x863ffff8 0x058000a0
+0x8714ddd4 0x0714dd95 0x8007e000
+0x0801d002 0x8801d038 0x801b0000
+0x8880001a 0x083fffde 0x878000ac
+0x0001acba 0x8001acbc 0x80000002
+0x80040003 0x0003fffe 0x80000005
+0x8007fffc 0x0008000a 0x0000000e
+0x800ffffa 0x00100018 0x0000001e
+0x80a8286e 0x00a8281d 0x80000051
+0x0114dfef 0x8114df88 0x000000ce
+0x82000029 0x01bfff54 0x810001fc
+0x831a28f4 0x031a2888 0x80000d80
+0x03800012 0x833fff46 0x028001bc
+0x8400003e 0x03bffff1 0x83000116
+0x043fff8c 0x8480000e 0x83800120
+0x05162edd 0x85162e92 0x00009600
+0x053fff86 0x85800024 0x84800184
+0x88000058 0x07bfffde 0x870001a4
+0x80008001 0x00008000 0x80000001
+0x801845c8 0x00184597 0x80000031
+0x01bd3e59 0x81bd3f02 0x800002a4
+0x86000008 0x05bffe3a 0x850003ac
+0x0700005a 0x86bffec9 0x060003d6
+0x073fff04 0x87800024 0x86800288
+0x80002000 0x00002000 0x00000000
+0x00005c0e 0x80005c10 0x80000002
+0x8000d618 0x0000d61c 0x00000004
+0x80010006 0x00010000 0x80000006
+0x8001fff8 0x00020000 0x00000008
+0x80044f7d 0x00044f66 0x80000017
+0x000ebb4e 0x800ebb73 0x80000025
+0x0032461d 0x8032470a 0x800000ed
+0x00a78f44 0x80a78e11 0x00000133
+0x810878cf 0x01087abe 0x000003de
+0x02032e92 0x82032cf2 0x00000d00
+0x823ffdce 0x02800098 0x018006c4
+0x02bfff64 0x830000bc 0x82000428
+0x841c7198 0x041c7300 0x0000b400
+0x84bffeec 0x05000090 0x04000468
+0x85a456e9 0x05a45575 0x8005d000
+0x863a980e 0x063a96df 0x80097800
+0x06bfd800 0x86bfd678 0x00188000
+0x800130da 0x000130e5 0x0000000b
+0x0003ffd9 0x80040012 0x80000039
+0x000fff4a 0x80100006 0x800000bc
+0x80800358 0x003fff98 0x804003c0
+0x0106faa4 0x8106fe6e 0x80000794
+0x021637c4 0x82163a61 0x800014e8
+0x0480007d 0x843ffb3e 0x03800b78
+0x053ffd34 0x85800234 0x84800e68
+0x00000800 0x80000800 0x00000000
+0x0000107a 0x8000107b 0x80000001
+0x000031b7 0x800031ba 0x80000003
+0x0000a996 0x8000a98e 0x00000008
+0x013ffbd6 0x818002c0 0x80801354
+0x020003d0 0x81bffd77 0x01001452
+0x828000ee 0x023ff4e8 0x818019e8
+0x02bff8fd 0x8300030c 0x82001a36
+0x0380014e 0x833ff500 0x02801b38
+0x841f7061 0x041f6c2f 0x80021900
+0x04aa253d 0x84aa1fa6 0x00059700
+0x0520f529 0x8520fc24 0x800df600
+0x853ffcfe 0x05800469 0x048017a8
+0x860004a7 0x05bffaaf 0x85001d3e
+0x80000400 0x00000400 0x00000000
+0x80000800 0x000007ff 0x80000001
+0x00003ffa 0x80004007 0x8000000d
+0x0000f1bd 0x8000f19e 0x0000001f
+0x0001638c 0x800163b6 0x8000002a
+0x8001ffbe 0x00020001 0x00000043
+0x0003ff53 0x80040008 0x800000b5
+0x800c8fb8 0x000c917a 0x000001c2
+0x801ffe81 0x00200454 0x000005d3
+0x808c64cf 0x008c709c 0x00000bcd
+0x00bff284 0x810007d8 0x80401d2c
+0x813fe83c 0x01800335 0x00803c5c
+0x83bff40e 0x04000222 0x0300206c
+0x0000150a 0x80001506 0x00000004
+0x800fff55 0x00100678 0x00000723
+0x80ba2ba2 0x00ba1932 0x80001270
+0x020002a6 0x81bfdef4 0x01004cb0
+0x032d17e8 0x832d2c62 0x80028f40
+0x0380049d 0x833fd520 0x02806834
+0x84000bc6 0x03bfd844 0x83007e90
+0x843ff815 0x04800ca6 0x0380426e
+0x8500a156 0x0500b243 0x0021da00
+0x00000100 0x80000100 0x00000000
+0x80000200 0x00000200 0x00000000
+0x80000446 0x00000449 0x00000003
+0x0000200c 0x80001ff9 0x00000013
+0x0000561f 0x80005650 0x80000031
+0x000100a4 0x8000ffd2 0x000000d2
+0x80099d7e 0x000997e5 0x80000599
+0x801fe636 0x00200282 0x00001c4c
+0x8080146e 0x003ff0b0 0x804023be
+0x00bfe768 0x8100196a 0x80404b6c
+0x813ff694 0x01802c22 0x0080c360
+0x02002170 0x81bfdfe4 0x0100c5f8
+0x023fab2e 0x8280123f 0x8180f2a0
+0x83340ff3 0x033437c0 0x0004f9a0
+0x04001945 0x83bfb658 0x0300f864
+0x8493fb62 0x049430ef 0x00358d00
+0x00000150 0x80000152 0x80000002
+0x000007fe 0x80000807 0x80000009
+0x80001032 0x0000104a 0x00000018
+0x00004028 0x80003fc7 0x00000061
+0x0000cd0c 0x8000cc6c 0x000000a0
+0x80120c8a 0x001222ac 0x00001622
+0x01b5d728 0x81b577bc 0x00017db0
+0x02805b40 0x823fed4f 0x01819262
+0x033fe974 0x83805854 0x82818e68
+0x04004c4f 0x83bff3b8 0x030149cc
+0x8000007c 0x0000007b 0x80000001
+0x80000092 0x00000093 0x00000001
+0x000001c6 0x800001c9 0x80000003
+0x80002c3e 0x00002cb5 0x00000077
+0x8000911b 0x00008fe3 0x80000138
+0x8000ff02 0x00010225 0x00000323
+0x8002034c 0x0001fba2 0x800007aa
+0x0007370e 0x80072738 0x00000fd6
+0x000815b8 0x8007f5bc 0x00001ffc
+0x801023f4 0x000ff8da 0x80002b1a
+0x80803c87 0x003f5b95 0x8040e0f2
+0x010b2f67 0x810aa1de 0x00011b12
+0x822524d2 0x0225bcb4 0x0004bf10
+0x800000c8 0x000000c5 0x80000003
+0x800000fe 0x00000104 0x00000006
+0x800001f8 0x00000205 0x0000000d
+0x800007ec 0x00000810 0x00000024
+0x00001fb2 0x80002075 0x800000c3
+0x800082fc 0x000086c6 0x000003ca
+0x0001567f 0x80015b7a 0x800004fb
+0x0007fb10 0x800839dd 0x80003ecd
+0x80203439 0x001f8497 0x8000afa2
+0x818a3407 0x018866c3 0x80073510
+0x02005f90 0x81be71fa 0x01049a4c
+0x023eda80 0x8280ed22 0x8185ff88
+0x030ec700 0x831056c8 0x8031f900
+0x80000010 0x00000010 0x00000000
+0x00000082 0x8000007e 0x00000004
+0x00006c7a 0x80006974 0x00000306
+0x001961fc 0x801a606e 0x8000fe72
+0x002fcff4 0x802e79e0 0x00015614
+0x0081d660 0x808534e4 0x80035e84
+0x82323c06 0x02300182 0x8011d420
+0x0000001e 0x80000021 0x80000003
+0x00000046 0x80000040 0x00000006
+0x000000d4 0x800000de 0x8000000a
+0x80000152 0x00000142 0x80000010
+0x800005da 0x0000056d 0x8000006d
+0x800007a5 0x0000082a 0x00000085
+0x80003037 0x00002df6 0x80000241
+0x000045f4 0x8000400e 0x000005e6
+0x00008847 0x80007bf9 0x00000c4e
+0x0000e8c8 0x800106fc 0x80001e34
+0x800206e5 0x0001c9e4 0x80003d01
+0x0004255e 0x8003d501 0x0000505d
+0x0007ac8f 0x8008551c 0x8000a88d
+0x80823180 0x003e0f70 0x80442210
+0x8104dea0 0x010a666c 0x000b0f98
+0x0133b408 0x8180c58d 0x809bae24
+0x00000007 0x80000008 0x80000001
+0x80000008 0x00000006 0x80000002
+0x8000001c 0x00000018 0x80000004
+0x80000038 0x0000003d 0x00000005
+0x8000007e 0x00000072 0x8000000c
+0x00000072 0x8000008b 0x80000019
+0x000001e3 0x80000237 0x80000054
+0x00018e06 0x8001c940 0x80003b3a
+0x00034783 0x80043ee0 0x8000f75d
+0x8102c9f8 0x00b4a25e 0x8050f192
+0x8000000b 0x00000012 0x00000007
+0x80000091 0x000000ba 0x00000029
+0x000000f9 0x80000162 0x80000069
+0x8000017b 0x0000027a 0x000000ff
+0x000004e7 0x800005f4 0x8000010d
+0x000012c4 0x80000bef 0x000006d5
+0x80002e32 0x00004016 0x000011e4
+0x000071c6 0x8000a0b3 0x80002eed
+0x0000b401 0x8001131e 0x80005f1d
+0x0002dad8 0x800214ba 0x0000c61e
+0x80054ca3 0x0003675a 0x8001e549
+0x0082628a 0x809d2c1c 0x801ac992
+0x010ace5a 0x80b4dfac 0x0060bd08
+0x80000001 0x00000000 0x80000001
+0x00000002 0x80000000 0x00000002
+0x00000001 0x80000008 0x80000007
+0x80000032 0x00000020 0x80000012
+0x00000070 0x80000033 0x0000003d
+0x80000087 0x0000000b 0x8000007c
+0x8000012a 0x000001f8 0x000000ce
+0x00000010 0x80020009 0x8001fff9
+0x800cd0aa 0x0007fb0a 0x8004d5a0
+0x00286c65 0x8013c8d3 0x0014a392
+0x80000002 0x80000004 0x80000006
+0x80000016 0x000001a7 0x00000191
+0x00000684 0x00000017 0x0000069b
+0x000010f5 0x00000008 0x000010fd
+0x0000001c 0x80002d34 0x80002d18
+0x0000708e 0x80000003 0x0000708b
+0x0002f468 0x80000136 0x0002f332
+0x80000002 0x80000000 0x80000002
+0x00000001 0x00000004 0x00000005
+0x00000000 0x00000008 0x00000008
+0x0000001d 0x00000003 0x00000020
+0x00000004 0x00000040 0x00000044
+0x8000006c 0x8000007e 0x800000ea
+0x0000008b 0x000000a4 0x0000012f
+0x80000026 0x800003ea 0x80000410
+0x80000ff6 0x80000036 0x8000102c
+0x80000be7 0x800014ed 0x800020d4
+0x00003ffd 0x000003ee 0x000043eb
+0x00008000 0x00000000 0x00008000
+0x800005d4 0x8000fecd 0x800104a1
+0x00000072 0x0001ffae 0x00020020
+0x800000fe 0x8003fffd 0x800400fb
+0x0007fffa 0x0000001e 0x00080018
+0x000fffc8 0x000001c8 0x00100190
+0x80000000 0x80200000 0x80200000</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>round_style := 0;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-340"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="1220" y="0"/>
+      <p2 x="1240" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="0"/>
+      <p2 x="160" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="520" y="260"/>
+      <p2 x="540" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1380" y="260"/>
+      <p2 x="1400" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1580" y="260"/>
+      <p2 x="1620" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="260"/>
+      <p2 x="1160" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="-520"/>
+      <p2 x="500" y="-520"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-140"/>
+      <p2 x="280" y="-140"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="140"/>
+      <p2 x="740" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="140"/>
+      <p2 x="220" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="140"/>
+      <p2 x="1140" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="740" y="140"/>
+      <p2 x="840" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="-400"/>
+      <p2 x="500" y="-400"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="-400"/>
+      <p2 x="600" y="-400"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="-400"/>
+      <p2 x="720" y="-400"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="-20"/>
+      <p2 x="1140" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="-20"/>
+      <p2 x="1160" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="20"/>
+      <p2 x="1160" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="20"/>
+      <p2 x="200" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="-280"/>
+      <p2 x="500" y="-280"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="280"/>
+      <p2 x="940" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="280"/>
+      <p2 x="460" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="280"/>
+      <p2 x="620" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="1380" y="280"/>
+      <p2 x="1400" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="1520" y="280"/>
+      <p2 x="1540" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="-540"/>
+      <p2 x="660" y="-540"/>
+    </wire>
+    <wire>
+      <p1 x="780" y="-160"/>
+      <p2 x="800" y="-160"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="160"/>
+      <p2 x="280" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="160"/>
+      <p2 x="360" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="160"/>
+      <p2 x="580" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="160"/>
+      <p2 x="420" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="160"/>
+      <p2 x="940" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="680" y="-420"/>
+      <p2 x="720" y="-420"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="-420"/>
+      <p2 x="860" y="-420"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="420"/>
+      <p2 x="600" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="-40"/>
+      <p2 x="1180" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="-680"/>
+      <p2 x="500" y="-680"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="40"/>
+      <p2 x="360" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="40"/>
+      <p2 x="300" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="40"/>
+      <p2 x="440" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="40"/>
+      <p2 x="580" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="-300"/>
+      <p2 x="580" y="-300"/>
+    </wire>
+    <wire>
+      <p1 x="520" y="300"/>
+      <p2 x="540" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="300"/>
+      <p2 x="460" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="300"/>
+      <p2 x="1060" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="300"/>
+      <p2 x="880" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="-560"/>
+      <p2 x="500" y="-560"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="-180"/>
+      <p2 x="1520" y="-180"/>
+    </wire>
+    <wire>
+      <p1 x="780" y="-180"/>
+      <p2 x="800" y="-180"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="180"/>
+      <p2 x="360" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="180"/>
+      <p2 x="640" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="180"/>
+      <p2 x="1260" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="180"/>
+      <p2 x="780" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="180"/>
+      <p2 x="840" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="180"/>
+      <p2 x="1060" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="980" y="180"/>
+      <p2 x="1020" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="-440"/>
+      <p2 x="500" y="-440"/>
+    </wire>
+    <wire>
+      <p1 x="700" y="-440"/>
+      <p2 x="720" y="-440"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="-440"/>
+      <p2 x="820" y="-440"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="440"/>
+      <p2 x="1360" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="-60"/>
+      <p2 x="1120" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="-60"/>
+      <p2 x="1280" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="-60"/>
+      <p2 x="1160" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="-700"/>
+      <p2 x="700" y="-700"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="60"/>
+      <p2 x="1220" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="60"/>
+      <p2 x="360" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="60"/>
+      <p2 x="1340" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-320"/>
+      <p2 x="500" y="-320"/>
+    </wire>
+    <wire>
+      <p1 x="740" y="320"/>
+      <p2 x="760" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="320"/>
+      <p2 x="1160" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="1160" y="320"/>
+      <p2 x="1380" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="780" y="-200"/>
+      <p2 x="800" y="-200"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="200"/>
+      <p2 x="360" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1160" y="200"/>
+      <p2 x="1260" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="200"/>
+      <p2 x="940" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="200"/>
+      <p2 x="1140" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1320" y="200"/>
+      <p2 x="1340" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1340" y="200"/>
+      <p2 x="1400" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="-460"/>
+      <p2 x="580" y="-460"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="460"/>
+      <p2 x="600" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="1340" y="-80"/>
+      <p2 x="1380" y="-80"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="-80"/>
+      <p2 x="1220" y="-80"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="-720"/>
+      <p2 x="500" y="-720"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="80"/>
+      <p2 x="580" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="80"/>
+      <p2 x="360" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="340"/>
+      <p2 x="440" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="340"/>
+      <p2 x="340" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="340"/>
+      <p2 x="960" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="340"/>
+      <p2 x="1040" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="340"/>
+      <p2 x="840" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="340"/>
+      <p2 x="1080" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="340"/>
+      <p2 x="860" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="340"/>
+      <p2 x="720" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="-600"/>
+      <p2 x="500" y="-600"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="-220"/>
+      <p2 x="1560" y="-220"/>
+    </wire>
+    <wire>
+      <p1 x="780" y="-220"/>
+      <p2 x="800" y="-220"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="220"/>
+      <p2 x="460" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1360" y="220"/>
+      <p2 x="1400" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1240" y="220"/>
+      <p2 x="1260" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="220"/>
+      <p2 x="1060" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="-480"/>
+      <p2 x="500" y="-480"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="-100"/>
+      <p2 x="1280" y="-100"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="-100"/>
+      <p2 x="1160" y="-100"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="100"/>
+      <p2 x="640" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="-360"/>
+      <p2 x="500" y="-360"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="-360"/>
+      <p2 x="600" y="-360"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="360"/>
+      <p2 x="960" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="740" y="360"/>
+      <p2 x="760" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="360"/>
+      <p2 x="340" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="360"/>
+      <p2 x="620" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="360"/>
+      <p2 x="660" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="-620"/>
+      <p2 x="680" y="-620"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="240"/>
+      <p2 x="460" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="1500" y="240"/>
+      <p2 x="1540" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="240"/>
+      <p2 x="840" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="240"/>
+      <p2 x="960" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="-120"/>
+      <p2 x="380" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="-120"/>
+      <p2 x="1220" y="-120"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="120"/>
+      <p2 x="180" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="120"/>
+      <p2 x="40" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="120"/>
+      <p2 x="560" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="120"/>
+      <p2 x="580" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="-380"/>
+      <p2 x="600" y="-380"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="-380"/>
+      <p2 x="720" y="-380"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="380"/>
+      <p2 x="960" y="380"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="-640"/>
+      <p2 x="500" y="-640"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="-160"/>
+      <p2 x="320" y="-140"/>
+    </wire>
+    <wire>
+      <p1 x="320" y="-720"/>
+      <p2 x="320" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="-40"/>
+      <p2 x="640" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="180"/>
+      <p2 x="640" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="100"/>
+      <p2 x="640" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="200"/>
+      <p2 x="960" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="-460"/>
+      <p2 x="580" y="-400"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="-360"/>
+      <p2 x="580" y="-300"/>
+    </wire>
+    <wire>
+      <p1 x="1220" y="60"/>
+      <p2 x="1220" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="-60"/>
+      <p2 x="200" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="300"/>
+      <p2 x="840" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="1160" y="260"/>
+      <p2 x="1160" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="-280"/>
+      <p2 x="460" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="1040" y="220"/>
+      <p2 x="1040" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="-240"/>
+      <p2 x="400" y="-220"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="-520"/>
+      <p2 x="400" y="-360"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="-360"/>
+      <p2 x="400" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="180"/>
+      <p2 x="720" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="280"/>
+      <p2 x="720" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="1360" y="220"/>
+      <p2 x="1360" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="-540"/>
+      <p2 x="660" y="-400"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="260"/>
+      <p2 x="660" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="-600"/>
+      <p2 x="340" y="-400"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="-400"/>
+      <p2 x="340" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="1240" y="-80"/>
+      <p2 x="1240" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="1240" y="0"/>
+      <p2 x="1240" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="80"/>
+      <p2 x="600" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="160"/>
+      <p2 x="600" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="-160"/>
+      <p2 x="280" y="-140"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="160"/>
+      <p2 x="280" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="360"/>
+      <p2 x="280" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="1560" y="-220"/>
+      <p2 x="1560" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="1180" y="-60"/>
+      <p2 x="1180" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="-420"/>
+      <p2 x="860" y="-220"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="-20"/>
+      <p2 x="220" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="-140"/>
+      <p2 x="160" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="-120"/>
+      <p2 x="1120" y="-100"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="-100"/>
+      <p2 x="1120" y="-60"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="-60"/>
+      <p2 x="1120" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="120"/>
+      <p2 x="420" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="-160"/>
+      <p2 x="420" y="-140"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="-680"/>
+      <p2 x="420" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="160"/>
+      <p2 x="420" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="740" y="140"/>
+      <p2 x="740" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="1380" y="-80"/>
+      <p2 x="1380" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="1380" y="280"/>
+      <p2 x="1380" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="680" y="-620"/>
+      <p2 x="680" y="-420"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-320"/>
+      <p2 x="360" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="1260" y="-60"/>
+      <p2 x="1260" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="360"/>
+      <p2 x="620" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="260"/>
+      <p2 x="620" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="40"/>
+      <p2 x="300" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="-240"/>
+      <p2 x="300" y="-220"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="-560"/>
+      <p2 x="300" y="-480"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="-480"/>
+      <p2 x="300" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="340"/>
+      <p2 x="300" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="940" y="280"/>
+      <p2 x="940" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="1520" y="-180"/>
+      <p2 x="1520" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="80"/>
+      <p2 x="560" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="-60"/>
+      <p2 x="1140" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="-120"/>
+      <p2 x="180" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="-440"/>
+      <p2 x="820" y="-220"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="40"/>
+      <p2 x="440" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="300"/>
+      <p2 x="440" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="-640"/>
+      <p2 x="440" y="-440"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="-440"/>
+      <p2 x="440" y="-260"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="160"/>
+      <p2 x="440" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="1340" y="140"/>
+      <p2 x="1340" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="1340" y="60"/>
+      <p2 x="1340" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="700" y="-700"/>
+      <p2 x="700" y="-440"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="-160"/>
+      <p2 x="380" y="-120"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Dynamic Fixed Square Root outputs the root.
+The result bit width is &quot;ceil(bits / 2)&quot; and radix &quot;ceil(radix / 2)&quot;.
+
+{{de 
+Der Dynamic Fixed Square Root gibt die Wurzel aus.
+Die Ergebniss Bitbreite ist &quot;ceil(bits / 2)&quot; und Radix &quot;ceil(radix / 2)&quot;.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Sqrt</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>in</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixed</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixed</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = global.out_bits;
+this.fixedPoint = global.out_radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 16;
+radix := 8;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>global.out_bits := ceil(args.bits / 2);
+global.out_radix := ceil(args.radix / 2);</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Square Root.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="0"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="0"/>
+      <p2 x="140" y="0"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

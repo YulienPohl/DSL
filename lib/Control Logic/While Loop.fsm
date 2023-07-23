@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fsm>
+  <states>
+    <state>
+      <values>D=0, R=0, I=0</values>
+      <position x="420.0" y="180.0"/>
+      <number>0</number>
+      <name>IDLE</name>
+      <radius>100</radius>
+      <isInitial>true</isInitial>
+      <initialAngle>9</initialAngle>
+      <defaultDC>false</defaultDC>
+    </state>
+    <state>
+      <values>D=0, R=0, I=1</values>
+      <position x="1140.0" y="180.0"/>
+      <number>1</number>
+      <name>INIT</name>
+      <radius>100</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>false</defaultDC>
+    </state>
+    <state>
+      <values>D=0, R=1, I=0</values>
+      <position x="1140.0" y="780.0"/>
+      <number>2</number>
+      <name>RUN</name>
+      <radius>100</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>false</defaultDC>
+    </state>
+    <state>
+      <values>D=1, R=0, I=0</values>
+      <position x="420.0" y="780.0"/>
+      <number>3</number>
+      <name>DONE</name>
+      <radius>100</radius>
+      <isInitial>false</isInitial>
+      <initialAngle>12</initialAngle>
+      <defaultDC>false</defaultDC>
+    </state>
+  </states>
+  <transitions>
+    <transition>
+      <values></values>
+      <position x="780.0" y="154.30327"/>
+      <fromState reference="../../../states/state"/>
+      <toState reference="../../../states/state[2]"/>
+      <condition>start=1</condition>
+    </transition>
+    <transition>
+      <values></values>
+      <position x="1162.2001" y="480.0"/>
+      <fromState reference="../../../states/state[2]"/>
+      <toState reference="../../../states/state[3]"/>
+      <condition>stop=0</condition>
+    </transition>
+    <transition>
+      <values></values>
+      <position x="780.0" y="805.7005"/>
+      <fromState reference="../../../states/state[3]"/>
+      <toState reference="../../../states/state[4]"/>
+      <condition>stop=1 &amp; hold=0</condition>
+    </transition>
+    <transition>
+      <values></values>
+      <position x="780.00256" y="480.00308"/>
+      <fromState reference="../../../states/state[2]"/>
+      <toState reference="../../../states/state[4]"/>
+      <condition>stop=1 &amp; hold=0</condition>
+    </transition>
+    <transition>
+      <values></values>
+      <position x="397.79663" y="480.0"/>
+      <fromState reference="../../../states/state[4]"/>
+      <toState reference="../../../states/state"/>
+      <condition></condition>
+    </transition>
+  </transitions>
+</fsm>

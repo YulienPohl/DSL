@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>Label</string>
+      <string>Neg</string>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>in</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>out</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>32</int>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>floating</intFormat>
+        </entry>
+      </elementAttributes>
+      <pos x="200" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>32</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>31,1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="40" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>31,1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>32</string>
+        </entry>
+      </elementAttributes>
+      <pos x="140" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes/>
+      <pos x="80" y="20"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="60" y="0"/>
+      <p2 x="140" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="0"/>
+      <p2 x="200" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="20"/>
+      <p2 x="80" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="20"/>
+      <p2 x="140" y="20"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

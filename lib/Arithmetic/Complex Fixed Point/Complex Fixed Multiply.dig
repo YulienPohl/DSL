@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Cplx-Mul</string>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>4</int>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a_re</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>a_im</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>y_re</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b_re</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>b_im</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>y_im</string>
+        </entry>
+        <entry>
+          <string>intFormat</string>
+          <intFormat>fixedSigned</intFormat>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.bits;
+this.fixedPoint = args.radix;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := 16;
+radix := 8;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Adder.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="220"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Subtract.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="220" y="80"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Multiply.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+round := true;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Multiply.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+round := true;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Multiply.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+round := true;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Fixed Multiply.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>bits := args.bits;
+radix := args.radix;
+round := true;
+saturate := true;
+signed := true;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="300"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="80" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="0"/>
+      <p2 x="120" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="320"/>
+      <p2 x="200" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="260"/>
+      <p2 x="220" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="100"/>
+      <p2 x="100" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="100"/>
+      <p2 x="320" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="100"/>
+      <p2 x="120" y="100"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="200"/>
+      <p2 x="120" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="40"/>
+      <p2 x="120" y="40"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="140"/>
+      <p2 x="120" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="300"/>
+      <p2 x="120" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="80"/>
+      <p2 x="220" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="240"/>
+      <p2 x="40" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="280" y="240"/>
+      <p2 x="320" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="240"/>
+      <p2 x="120" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="340"/>
+      <p2 x="60" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="340"/>
+      <p2 x="120" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="20"/>
+      <p2 x="200" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="120"/>
+      <p2 x="220" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="220"/>
+      <p2 x="220" y="220"/>
+    </wire>
+    <wire>
+      <p1 x="80" y="0"/>
+      <p2 x="80" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="100"/>
+      <p2 x="100" y="200"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="260"/>
+      <p2 x="200" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="200" y="20"/>
+      <p2 x="200" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="40"/>
+      <p2 x="40" y="240"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="140"/>
+      <p2 x="60" y="340"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

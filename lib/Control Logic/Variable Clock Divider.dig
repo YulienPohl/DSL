@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>The Variable Clock Divider can be used to halve the frequency of C_i to any power of 2.
+
+{{de 
+Mit dem Variable Clock Divider lässt sich die Frequenz von C_i auf eine beliebige Potenz von 2 halbieren.
+}}</string>
+    </entry>
+    <entry>
+      <string>isGeneric</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Label</string>
+      <string>Var-C-Div</string>
+    </entry>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>Clock</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>C_i</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="0"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Counter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.div_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Comparator</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.div_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Register</elementName>
+      <elementAttributes>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>D</string>
+          </inverterConfig>
+        </entry>
+      </elementAttributes>
+      <pos x="400" y="-40"/>
+    </visualElement>
+    <visualElement>
+      <elementName>GenericInitCode</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>div_bits := 4;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>C_o</string>
+        </entry>
+      </elementAttributes>
+      <pos x="520" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>div</string>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.div_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="0" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Sub</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.div_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>generic</string>
+          <string>this.Bits = args.div_bits;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>C_i div  C_o
+
+#divide by 5
+0   5    0
+C   5    0
+C   5    0
+C   5    0
+C   5    0
+C   5    1
+C   5    1
+C   5    1
+C   5    1
+C   5    1
+
+#divide by 3
+C   3    0
+C   3    0
+C   3    0
+C   3    1
+C   3    1
+C   3    1
+C   3    0
+C   3    0
+C   3    0
+C   3    1
+C   3    1
+C   3    1
+
+#divide by 2
+C   2    0
+C   2    0
+C   2    1
+C   2    1
+C   2    0
+C   2    0
+</dataString>
+          </testData>
+        </entry>
+        <entry>
+          <string>generic</string>
+          <string>div_bits := 4;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="100" y="-160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes/>
+      <pos x="280" y="-20"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="40" y="80"/>
+      <p2 x="380" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="0"/>
+      <p2 x="40" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="0"/>
+      <p2 x="360" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="0"/>
+      <p2 x="180" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="240" y="0"/>
+      <p2 x="260" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="80" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="0"/>
+      <p2 x="400" y="0"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="160"/>
+      <p2 x="80" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="-20"/>
+      <p2 x="80" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="-20"/>
+      <p2 x="180" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="-20"/>
+      <p2 x="480" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="-20"/>
+      <p2 x="400" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="240" y="-20"/>
+      <p2 x="280" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="-20"/>
+      <p2 x="520" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="20"/>
+      <p2 x="80" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="20"/>
+      <p2 x="280" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-40"/>
+      <p2 x="380" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="120"/>
+      <p2 x="80" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="120"/>
+      <p2 x="160" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="140"/>
+      <p2 x="80" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="60"/>
+      <p2 x="360" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-80"/>
+      <p2 x="480" y="-80"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="0"/>
+      <p2 x="160" y="120"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="-80"/>
+      <p2 x="480" y="-20"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="0"/>
+      <p2 x="260" y="20"/>
+    </wire>
+    <wire>
+      <p1 x="40" y="0"/>
+      <p2 x="40" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="-80"/>
+      <p2 x="360" y="-40"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="0"/>
+      <p2 x="360" y="60"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="-20"/>
+      <p2 x="380" y="80"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="20"/>
+      <p2 x="60" y="60"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>
