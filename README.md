@@ -1,7 +1,7 @@
 # Digital Support Library
 
-The Digital Support Library contains circuits developed for the [Digital](https://github.com/hneemann/Digital) simulator.  
-This repo contains useful circuits that make working with Digital easier and extend functionality.
+The Digital Support Library contains useful circuits that facilitate work with the  
+[Digital](https://github.com/hneemann/Digital) simulator as well as extend its functionality.
 
 Since Digital has the functionality to export circuits to VHDL or Verilog, some circuits are modeled after the VHDL standard library.  
 Most of the circuits are generic, that means you have the possibility to set the bit width or other properties.
