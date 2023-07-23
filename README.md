@@ -101,10 +101,10 @@ LIFO Stack                   | &#x2610;    | &#x2610;   | &#x2610; |
 
 ## Usage
 
-Extract the contents to the Digital lib folder.
+Extract the contents to the Digital lib folder.  
 The Circuits can be found under Componets->Library or in the Sidebar under Library.
 
 ## Contribute
 
-Although this library is not complete, I share it because otherwise I would never get it done.
+Although this library is not complete, I share it because otherwise I would never get it done.  
 If you use this project and find it helpful, you could contribute to implmenting, documenting or unit testing new or existing circuits.
