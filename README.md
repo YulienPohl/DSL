@@ -82,13 +82,13 @@ Float Break Number           | &#x2611;    | &#x2610;   | &#x2610; |
 Float Check Round            | &#x2611;    | &#x2610;   | &#x2610; |
 Float Classify               | &#x2611;    | &#x2610;   | &#x2610; |
 Float Normalize              | &#x2611;    | &#x2610;   | &#x2610; |
-**Memory**                   |             |            |          |
+**Control Logic**            |             |            |          |
 Edge Detector                | &#x2611;    | &#x2611;   | &#x2610; |
 Trigger                      | &#x2611;    | &#x2611;   | &#x2610; |
 Variable Clock Divider       | &#x2611;    | &#x2611;   | &#x2610; |
 While Loop                   | &#x2611;    | &#x2611;   | &#x2610; |
 For Loop                     | &#x2611;    | &#x2611;   | &#x2610; |
-**Control Logic**            |             |            |          |
+**Memory**                   |             |            |          |
 Counter Asynchronous         | &#x2611;    | &#x2610;   | &#x2610; |
 Counter Preset Asynchronous  | &#x2611;    | &#x2610;   | &#x2610; |
 Register Asynchronous        | &#x2611;    | &#x2610;   | &#x2610; |
