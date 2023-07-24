@@ -88,6 +88,8 @@ Trigger                      | &#x2611;    | &#x2611;   | &#x2610; |
 Variable Clock Divider       | &#x2611;    | &#x2611;   | &#x2610; |
 While Loop                   | &#x2611;    | &#x2611;   | &#x2610; |
 For Loop                     | &#x2611;    | &#x2611;   | &#x2610; |
+**IO**                       |             |            |          |
+Graph Plotter                | &#x2611;    | &#x2611;   | &#x2610; |
 **Memory**                   |             |            |          |
 Counter Asynchronous         | &#x2611;    | &#x2610;   | &#x2610; |
 Counter Preset Asynchronous  | &#x2611;    | &#x2610;   | &#x2610; |
